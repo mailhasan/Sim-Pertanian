@@ -1,0 +1,99 @@
+object FDataAset: TFDataAset
+  Left = 251
+  Height = 569
+  Top = 150
+  Width = 841
+  BorderStyle = bsNone
+  Caption = 'Daftar Data Aset '
+  ClientHeight = 569
+  ClientWidth = 841
+  LCLVersion = '1.8.4.0'
+  object PanelAtas: TPanel
+    Left = 0
+    Height = 50
+    Top = 0
+    Width = 841
+    Align = alTop
+    Caption = 'Daftar Data Aset'
+    TabOrder = 0
+    OnClick = PanelAtasClick
+  end
+  object PanelTengah: TPanel
+    Left = 0
+    Height = 469
+    Top = 50
+    Width = 841
+    Align = alClient
+    ClientHeight = 469
+    ClientWidth = 841
+    TabOrder = 1
+    object DBGridAset: TDBGrid
+      Left = 1
+      Height = 467
+      Top = 1
+      Width = 839
+      Align = alClient
+      AutoFillColumns = True
+      Color = clWindow
+      Columns = <      
+        item
+          Title.Caption = 'kdAset'
+          Width = 115
+          FieldName = 'kdAset'
+        end      
+        item
+          Title.Caption = 'nmAset'
+          Width = 115
+          FieldName = 'nmAset'
+        end      
+        item
+          Title.Caption = 'spesifikasi'
+          Width = 115
+          FieldName = 'spesifikasi'
+        end      
+        item
+          Title.Caption = 'kondisiPembelian'
+          Width = 115
+          FieldName = 'kondisiPembelian'
+        end      
+        item
+          Title.Caption = 'tglPembelian'
+          Width = 115
+          FieldName = 'tglPembelian'
+        end      
+        item
+          Title.Caption = 'keterangan'
+          Width = 115
+          FieldName = 'keterangan'
+        end      
+        item
+          Title.Caption = 'hargaPembelian'
+          Width = 116
+          FieldName = 'hargaPembelian'
+        end>
+      DataSource = Fmodule.DataSourceAset
+      TabOrder = 0
+      OnDrawColumnCell = DBGridAsetDrawColumnCell
+    end
+  end
+  object PanelBawah: TPanel
+    Left = 0
+    Height = 50
+    Top = 519
+    Width = 841
+    Align = alBottom
+    BevelColor = clNone
+    ClientHeight = 50
+    ClientWidth = 841
+    TabOrder = 2
+    object ButtonKeluar: TButton
+      Left = 760
+      Height = 25
+      Top = 24
+      Width = 75
+      Caption = 'Keluar'
+      OnClick = ButtonKeluarClick
+      TabOrder = 0
+    end
+  end
+end
