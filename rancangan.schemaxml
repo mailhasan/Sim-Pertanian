@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemadesigner version="6.5">
+<source>
+<database charset="latin1" collation="latin1_swedish_ci">nfifarm</database>
+</source>
+<canvas zoom="100">
+<tables>
+<table name="lahan" view="standard">
+<left>11</left>
+<top>19</top>
+<width>317</width>
+<height>209</height>
+<sql_create_table>CREATE TABLE `lahan` (
+  `kodeLokasiLahan` varchar(10) NOT NULL,
+  `lokasiLahan` varchar(200) DEFAULT NULL,
+  `tanggalPembelian` date DEFAULT NULL,
+  `status` enum('aktif','tidak aktif') DEFAULT NULL,
+  `createDate` datetime DEFAULT NULL,
+  `createUser` varchar(50) DEFAULT NULL,
+  `modifDate` datetime DEFAULT NULL,
+  `modifUser` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`kodeLokasiLahan`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="jenisTanaman" view="standard">
+<left>12</left>
+<top>259</top>
+<width>325</width>
+<height>192</height>
+<sql_create_table>CREATE TABLE `jenistanaman` (
+  `kodeJenisTanaman` varchar(10) NOT NULL,
+  `jenisTanaman` varchar(200) DEFAULT NULL,
+  `status` enum('aktif','tidak aktif') DEFAULT NULL,
+  `createDate` datetime DEFAULT NULL,
+  `createUser` varchar(50) DEFAULT NULL,
+  `modifDate` datetime DEFAULT NULL,
+  `modifUser` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`kodeJenisTanaman`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="kegiatanKelolahLahan" view="standard">
+<left>381</left>
+<top>250</top>
+<width>356</width>
+<height>277</height>
+<sql_create_table>CREATE TABLE `kegiatankelolahlahan` (
+  `noKegiatanKelolahLahan` varchar(100) NOT NULL,
+  `tanggalMulaiKegiatan` date DEFAULT NULL,
+  `tanggalSelesaiKegiatan` date DEFAULT NULL,
+  `kodeLokasiLahan` varchar(10) DEFAULT NULL,
+  `LokasiLahan` varchar(200) DEFAULT NULL,
+  `kodeJenisTanam` varchar(10) DEFAULT NULL,
+  `jenisTanam` varchar(200) DEFAULT NULL,
+  `status` enum('aktif','tidak aktif') DEFAULT NULL,
+  `pendapatan` float DEFAULT NULL,
+  `pengeluaran` float DEFAULT NULL,
+  `keuntungan` float DEFAULT NULL,
+  `keterangan` text,
+  `createDate` datetime DEFAULT NULL,
+  `createUser` varchar(50) DEFAULT NULL,
+  `modifDate` datetime DEFAULT NULL,
+  `modifUser` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`noKegiatanKelolahLahan`),
+  KEY `kodeLokasiLahan` (`kodeLokasiLahan`),
+  KEY `kodeJenisTanam` (`kodeJenisTanam`),
+  CONSTRAINT `kegiatankelolahlahan_ibfk_1` FOREIGN KEY (`kodeLokasiLahan`) REFERENCES `lahan` (`kodeLokasiLahan`),
+  CONSTRAINT `kegiatankelolahlahan_ibfk_2` FOREIGN KEY (`kodeJenisTanam`) REFERENCES `jenistanaman` (`kodeJenisTanaman`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="detailKegiatanKelolahLahan" view="standard">
+<left>17</left>
+<top>480</top>
+<width>314</width>
+<height>192</height>
+<sql_create_table>CREATE TABLE `detailkegiatankelolahlahan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `noKegiatanKelolahLahan` varchar(70) DEFAULT NULL,
+  `keterangankegiatanKelolahLahan` text,
+  `createDate` datetime DEFAULT NULL,
+  `createUser` varchar(50) DEFAULT NULL,
+  `modifDate` datetime DEFAULT NULL,
+  `modifUser` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `noKegiatanKelolahLahan` (`noKegiatanKelolahLahan`),
+  CONSTRAINT `detailkegiatankelolahlahan_ibfk_1` FOREIGN KEY (`noKegiatanKelolahLahan`) REFERENCES `kegiatankelolahlahan` (`noKegiatanKelolahLahan`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="hasilpanen" view="standard">
+<left>773</left>
+<top>14</top>
+<width>299</width>
+<height>260</height>
+<sql_create_table>CREATE TABLE `hasilpanen` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `noKegiatanKelolahLahan` varchar(70) DEFAULT NULL,
+  `tanggalPanen` date DEFAULT NULL,
+  `satuan` varchar(20) DEFAULT NULL,
+  `jumlahPanen` float DEFAULT NULL,
+  `hargaJual` float DEFAULT NULL,
+  `subTotalPanen` float DEFAULT NULL,
+  `createDate` datetime DEFAULT NULL,
+  `createUser` varchar(50) DEFAULT NULL,
+  `modifDate` datetime DEFAULT NULL,
+  `modifUser` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `noKegiatanKeolahLahan` (`noKegiatanKelolahLahan`),
+  CONSTRAINT `hasilpanen_ibfk_1` FOREIGN KEY (`noKegiatanKelolahLahan`) REFERENCES `kegiatankelolahlahan` (`noKegiatanKelolahLahan`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="alat" view="colnames">
+<left>823</left>
+<top>283</top>
+<width>179</width>
+<height>226</height>
+<sql_create_table>CREATE TABLE `alat` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `noKegiatanKelolaLahan` varchar(70) DEFAULT NULL,
+  `tanggalAlat` date DEFAULT NULL,
+  `namaAlat` varchar(100) DEFAULT NULL,
+  `biayaAlat` float DEFAULT NULL,
+  `ketarangan` text,
+  `status` enum('lunas','belum lunas') DEFAULT NULL,
+  `createDate` datetime DEFAULT NULL,
+  `createUser` varchar(50) DEFAULT NULL,
+  `modifDate` datetime DEFAULT NULL,
+  `modifUser` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `noKegiatanKelolaLahan` (`noKegiatanKelolaLahan`),
+  CONSTRAINT `alat_ibfk_1` FOREIGN KEY (`noKegiatanKelolaLahan`) REFERENCES `kegiatankelolahlahan` (`noKegiatanKelolahLahan`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="pelaksanapekerja" view="standard">
+<left>774</left>
+<top>524</top>
+<width>366</width>
+<height>260</height>
+<sql_create_table>CREATE TABLE `pelaksanapekerja` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `noKegiatanKelolaLahan` varchar(70) DEFAULT NULL,
+  `tanggalBekerja` date DEFAULT NULL,
+  `nama` varchar(200) DEFAULT NULL,
+  `upah` float DEFAULT NULL,
+  `keterangan` text,
+  `status` enum('lunas','belum lunas') DEFAULT NULL,
+  `createDate` datetime DEFAULT NULL,
+  `createUser` varchar(50) DEFAULT NULL,
+  `modifDate` datetime DEFAULT NULL,
+  `modifUser` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `noKegiatanKelolaLahan` (`noKegiatanKelolaLahan`),
+  CONSTRAINT `pelaksanapekerja_ibfk_1` FOREIGN KEY (`noKegiatanKelolaLahan`) REFERENCES `kegiatankelolahlahan` (`noKegiatanKelolahLahan`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="penggunaanpupukObat" view="standard">
+<left>765</left>
+<top>805</top>
+<width>316</width>
+<height>277</height>
+<sql_create_table>CREATE TABLE `penggunaanpupukobat` (
+  `id` int(11) DEFAULT NULL,
+  `noKegiatanKelolahLahan` varchar(70) DEFAULT NULL,
+  `tanggalPupuk` date DEFAULT NULL,
+  `namaPupuk` varchar(200) DEFAULT NULL,
+  `hargaPupuk` float DEFAULT NULL,
+  `jumlahPupuk` int(11) DEFAULT NULL,
+  `subTotalPupuk` float DEFAULT NULL,
+  `keterangan` text,
+  `status` enum('lunas','belum lunas') DEFAULT NULL,
+  `createDate` datetime DEFAULT NULL,
+  `createUser` varchar(50) DEFAULT NULL,
+  `modifDate` datetime DEFAULT NULL,
+  `modifUser` varchar(50) DEFAULT NULL,
+  KEY `noKegiatanKelolahLahan` (`noKegiatanKelolahLahan`),
+  CONSTRAINT `penggunaanpupukobat_ibfk_1` FOREIGN KEY (`noKegiatanKelolahLahan`) REFERENCES `kegiatankelolahlahan` (`noKegiatanKelolahLahan`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="pegawai" view="colnames">
+<left>1184</left>
+<top>544</top>
+<width>109</width>
+<height>192</height>
+<sql_create_table>CREATE TABLE `pegawai` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nama` varchar(200) DEFAULT NULL,
+  `status` enum('y','n') DEFAULT NULL,
+  `createDate` datetime DEFAULT NULL,
+  `createUser` varchar(50) DEFAULT NULL,
+  `modifDate` datetime DEFAULT NULL,
+  `modifUser` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `nama` (`nama`),
+  CONSTRAINT `pegawai_ibfk_1` FOREIGN KEY (`nama`) REFERENCES `pelaksanapekerja` (`noKegiatanKelolaLahan`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="pupukobat" view="colnames">
+<left>435</left>
+<top>689</top>
+<width>140</width>
+<height>226</height>
+<sql_create_table>CREATE TABLE `pupukobat` (
+  `kodePupukObat` varchar(10) NOT NULL,
+  `namaPupukObat` varchar(150) DEFAULT NULL,
+  `satuan` varchar(50) DEFAULT NULL,
+  `stok` float DEFAULT NULL,
+  `createDate` datetime DEFAULT NULL,
+  `createUser` varchar(50) DEFAULT NULL,
+  `modifDate` datetime DEFAULT NULL,
+  `modifUser` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`kodePupukObat`),
+  CONSTRAINT `pupukobat_ibfk_1` FOREIGN KEY (`kodePupukObat`) REFERENCES `detailpembelianpupukobat` (`noPembelian`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="pembelianPupukObat" view="colnames">
+<left>31</left>
+<top>698</top>
+<width>147</width>
+<height>209</height>
+<sql_create_table>CREATE TABLE `pembelianpupukobat` (
+  `noPembelian` varchar(50) NOT NULL,
+  `tanggalPembelian` datetime DEFAULT NULL,
+  `totalPembelian` float DEFAULT NULL,
+  `status` enum('lunas','belum lunas') DEFAULT NULL,
+  `createDate` datetime DEFAULT NULL,
+  `createUser` varchar(50) DEFAULT NULL,
+  `modifDate` datetime DEFAULT NULL,
+  `modifUser` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`noPembelian`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="detailPembelianPupukObat" view="colnames">
+<left>242</left>
+<top>691</top>
+<width>153</width>
+<height>277</height>
+<sql_create_table>CREATE TABLE `detailpembelianpupukobat` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `noPembelian` varchar(50) DEFAULT NULL,
+  `kodePupukObat` varchar(10) DEFAULT NULL,
+  `namaPupukObat` varchar(150) DEFAULT NULL,
+  `satuan` varchar(50) DEFAULT NULL,
+  `jumlahPembelian` float DEFAULT NULL,
+  `hargaBeli` float DEFAULT NULL,
+  `subTotalPembelian` float DEFAULT NULL,
+  `createDate` datetime DEFAULT NULL,
+  `createUser` varchar(50) DEFAULT NULL,
+  `modifDate` datetime DEFAULT NULL,
+  `modifUser` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `noPembelian` (`noPembelian`),
+  CONSTRAINT `detailpembelianpupukobat_ibfk_1` FOREIGN KEY (`noPembelian`) REFERENCES `pembelianpupukobat` (`noPembelian`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+</tables>
+</canvas>
+</schemadesigner>
