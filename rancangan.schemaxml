@@ -127,7 +127,7 @@
   PRIMARY KEY (`id`),
   KEY `noKegiatanKelolaLahan` (`noKegiatanKelolahLahan`),
   CONSTRAINT `penggunaanalat_ibfk_1` FOREIGN KEY (`noKegiatanKelolahLahan`) REFERENCES `kegiatankelolahlahan` (`noKegiatanKelolahLahan`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1</sql_create_table>
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="pelaksanapekerja" view="standard">
 <left>774</left>
@@ -190,7 +190,7 @@
   PRIMARY KEY (`id`),
   KEY `nama` (`nama`),
   CONSTRAINT `pegawai_ibfk_1` FOREIGN KEY (`nama`) REFERENCES `pelaksanapekerja` (`noKegiatanKelolahLahan`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="pupukobat" view="colnames">
 <left>435</left>
