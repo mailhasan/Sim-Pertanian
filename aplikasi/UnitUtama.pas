@@ -38,9 +38,12 @@ type
     dxnvbrtmKegiatanKelolaLahan: TdxNavBarItem;
     dxnvbrtmPengeluaran: TdxNavBarItem;
     dxnvbrtmPENDAPATAN: TdxNavBarItem;
+    dxnvbrtmDataPegawai: TdxNavBarItem;
+    dxnvbrgrpDATAMASTER: TdxNavBarGroup;
     procedure dxnvbrtmDataLahanClick(Sender: TObject);
     procedure dxnvbrtmDataLokasiLahanClick(Sender: TObject);
     procedure dxnvbrtmKegiatanKelolaLahanClick(Sender: TObject);
+    procedure dxnvbrtmDataPegawaiClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -53,7 +56,7 @@ var
 implementation
 
 {$R *.dfm}
-uses UnitDataLokasiLahan,UnitDaftarDataJenisTanaman,UnitDaftarDataKegiatanKelolaLahan;
+uses UnitDataLokasiLahan,UnitDaftarDataJenisTanaman,UnitDaftarDataKegiatanKelolaLahan,UnitDaftarDataPegawai;
 
 procedure TFormUtama.dxnvbrtmDataLahanClick(Sender: TObject);
 begin
@@ -71,6 +74,12 @@ procedure TFormUtama.dxnvbrtmKegiatanKelolaLahanClick(Sender: TObject);
 begin
  Application.CreateForm(TFormDaftarDataKegiatanKelolaLahan, FormDaftarDataKegiatanKelolaLahan);
  FormDaftarDataKegiatanKelolaLahan.ShowModal;
+end;
+
+procedure TFormUtama.dxnvbrtmDataPegawaiClick(Sender: TObject);
+begin
+ Application.CreateForm(TFormDAFTARDATAPEGAWAI, FormDAFTARDATAPEGAWAI);
+ FormDAFTARDATAPEGAWAI.ShowModal;
 end;
 
 end.

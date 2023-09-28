@@ -100,12 +100,12 @@ object FormUtama: TFormUtama
       Width = 188
       Height = 463
       Align = alClient
-      ActiveGroupIndex = 0
+      ActiveGroupIndex = 1
       TabOrder = 0
       View = 18
       ViewStyle.ColorSchemeName = 'Silver'
-      object dxnvbrgrpPertanian: TdxNavBarGroup
-        Caption = 'PERTANIAN'
+      object dxnvbrgrpDATAMASTER: TdxNavBarGroup
+        Caption = 'DATA MASTER'
         SelectedLinkIndex = -1
         TopVisibleLinkIndex = 0
         Links = <
@@ -115,6 +115,15 @@ object FormUtama: TFormUtama
           item
             Item = dxnvbrtmDataLokasiLahan
           end
+          item
+            Item = dxnvbrtmDataPegawai
+          end>
+      end
+      object dxnvbrgrpPertanian: TdxNavBarGroup
+        Caption = 'PERTANIAN'
+        SelectedLinkIndex = -1
+        TopVisibleLinkIndex = 0
+        Links = <
           item
             Item = dxnvbrtmKegiatanKelolaLahan
           end
@@ -154,6 +163,10 @@ object FormUtama: TFormUtama
       end
       object dxnvbrtmPENDAPATAN: TdxNavBarItem
         Caption = 'PENDAPATAN'
+      end
+      object dxnvbrtmDataPegawai: TdxNavBarItem
+        Caption = 'DATA PEGAWAI'
+        OnClick = dxnvbrtmDataPegawaiClick
       end
     end
   end

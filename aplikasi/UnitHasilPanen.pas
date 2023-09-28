@@ -244,7 +244,7 @@ if (cxdtdtMulai.Text = '') or (cxdtdtSelesai.Text='') then
     begin
      Close;
      SQL.Clear;
-     SQL.Text := 'select * from hasilpanen where (tanggalPanen BETWEEN "'+FormatDateTime('YYYY-MM-dd',cxdtdtMulai.Date)+'" and "'+FormatDateTime('YYYY-MM-dd',cxdtdtSelesai.Date+1)+'" )(noKegiatanKelolahLahan="'+cxtxtdtNoKegiatan.Text+'")';
+     SQL.Text := 'select * from hasilpanen where (tanggalPanen BETWEEN "'+FormatDateTime('YYYY-MM-dd',cxdtdtMulai.Date)+'" and "'+FormatDateTime('YYYY-MM-dd',cxdtdtSelesai.Date+1)+'" ) and (noKegiatanKelolahLahan="'+cxtxtdtNoKegiatan.Text+'")';
      Open;
     end;
    end;

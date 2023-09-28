@@ -90,4 +90,32 @@ object DataModule1: TDataModule1
     Left = 142
     Top = 360
   end
+  object zqrypenggunaanalat: TZQuery
+    Connection = conFarm
+    Active = True
+    SQL.Strings = (
+      'select * from penggunaanalat')
+    Params = <>
+    Left = 268
+    Top = 78
+  end
+  object dspenggunaanalat: TDataSource
+    DataSet = zqrypenggunaanalat
+    Left = 368
+    Top = 98
+  end
+  object zqryPegawai: TZQuery
+    Connection = conFarm
+    Active = True
+    SQL.Strings = (
+      'select * from pegawai')
+    Params = <>
+    Left = 261
+    Top = 144
+  end
+  object dspegawai: TDataSource
+    DataSet = zqryPegawai
+    Left = 332
+    Top = 156
+  end
 end

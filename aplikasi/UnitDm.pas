@@ -19,6 +19,10 @@ type
     dsdetailKegiatanKelolahLahan: TDataSource;
     zqryhasilPanen: TZQuery;
     dshasilpanen: TDataSource;
+    zqrypenggunaanalat: TZQuery;
+    dspenggunaanalat: TDataSource;
+    zqryPegawai: TZQuery;
+    dspegawai: TDataSource;
     procedure conFarmAfterConnect(Sender: TObject);
   private
     { Private declarations }
@@ -40,6 +44,8 @@ begin
   zqrykegiatanKelolahLahan.Active := True;
   zqrydetailKegiatanKelolahLahan.Active := True;
   zqryhasilPanen.Active := True;
+  zqrypenggunaanalat.Active := True;
+  zqryPegawai.Active := True;
 end;
 
 end.

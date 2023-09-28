@@ -72,6 +72,7 @@ type
     procedure dxnvbrtmHapusClick(Sender: TObject);
     procedure dxnvbrtmKelolaHarianLahanClick(Sender: TObject);
     procedure dxnvbrtmHasilPanenClick(Sender: TObject);
+    procedure dxnvbrtmPengeluaranAlatClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -89,7 +90,7 @@ implementation
 
 {$R *.dfm}
 uses UnitDm, ZDataset,UnitFormTambahKegiatanKelolaHarian,UnitHapusKegiatanKelolaLahan,UnitKelolaLahan,
-     UnitHasilPanen;
+     UnitHasilPanen,UnitPenggunaanAlat;
 
 /// procedure baru
 procedure TFormDaftarDataKegiatanKelolaLahan.baru;
@@ -218,6 +219,20 @@ if DataModule1.zqrykegiatanKelolahLahan.RecordCount >= 1 then
    FormHasilPanen.cxtxtdtNoKegiatan.Text := DataModule1.zqrykegiatanKelolahLahan.fieldByname('noKegiatanKelolahLahan').AsString;
    FormHasilPanen.baru;
    FormHasilPanen.ShowModal;
+  end
+  else
+  MessageDlg('Data Tidak Di Temukan...!',mtWarning,[mbOK],0);
+end;
+
+procedure TFormDaftarDataKegiatanKelolaLahan.dxnvbrtmPengeluaranAlatClick(
+  Sender: TObject);
+begin
+if DataModule1.zqrykegiatanKelolahLahan.RecordCount >= 1 then
+  begin
+   Application.CreateForm(TFormPenggunaanAlat, FormPenggunaanAlat);
+   FormPenggunaanAlat.cxtxtdtNoKegiatan.Text := DataModule1.zqrykegiatanKelolahLahan.fieldByname('noKegiatanKelolahLahan').AsString;
+   FormPenggunaanAlat.baru;
+   FormPenggunaanAlat.ShowModal;
   end
   else
   MessageDlg('Data Tidak Di Temukan...!',mtWarning,[mbOK],0);

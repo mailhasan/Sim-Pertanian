@@ -272,6 +272,7 @@ object FormDaftarDataKegiatanKelolaLahan: TFormDaftarDataKegiatanKelolaLahan
       end
       object dxnvbrtmPengeluaranAlat: TdxNavBarItem
         Caption = 'ALAT'
+        OnClick = dxnvbrtmPengeluaranAlatClick
       end
       object dxnvbrtmPembayaranPekerja: TdxNavBarItem
         Caption = 'PEKERJA'

@@ -107,27 +107,27 @@
   CONSTRAINT `hasilpanen_ibfk_1` FOREIGN KEY (`noKegiatanKelolahLahan`) REFERENCES `kegiatankelolahlahan` (`noKegiatanKelolahLahan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
 </table>
-<table name="alat" view="colnames">
+<table name="penggunaanalat" view="colnames">
 <left>823</left>
 <top>283</top>
-<width>179</width>
+<width>220</width>
 <height>226</height>
-<sql_create_table>CREATE TABLE `alat` (
+<sql_create_table>CREATE TABLE `penggunaanalat` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `noKegiatanKelolaLahan` varchar(70) DEFAULT NULL,
+  `noKegiatanKelolahLahan` varchar(70) DEFAULT NULL,
   `tanggalAlat` date DEFAULT NULL,
   `namaAlat` varchar(100) DEFAULT NULL,
   `biayaAlat` float DEFAULT NULL,
-  `ketarangan` text,
+  `keterangan` text,
   `status` enum('lunas','belum lunas') DEFAULT NULL,
   `createDate` datetime DEFAULT NULL,
   `createUser` varchar(50) DEFAULT NULL,
   `modifDate` datetime DEFAULT NULL,
   `modifUser` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `noKegiatanKelolaLahan` (`noKegiatanKelolaLahan`),
-  CONSTRAINT `alat_ibfk_1` FOREIGN KEY (`noKegiatanKelolaLahan`) REFERENCES `kegiatankelolahlahan` (`noKegiatanKelolahLahan`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+  KEY `noKegiatanKelolaLahan` (`noKegiatanKelolahLahan`),
+  CONSTRAINT `penggunaanalat_ibfk_1` FOREIGN KEY (`noKegiatanKelolahLahan`) REFERENCES `kegiatankelolahlahan` (`noKegiatanKelolahLahan`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="pelaksanapekerja" view="standard">
 <left>774</left>
@@ -136,7 +136,7 @@
 <height>260</height>
 <sql_create_table>CREATE TABLE `pelaksanapekerja` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `noKegiatanKelolaLahan` varchar(70) DEFAULT NULL,
+  `noKegiatanKelolahLahan` varchar(70) DEFAULT NULL,
   `tanggalBekerja` date DEFAULT NULL,
   `nama` varchar(200) DEFAULT NULL,
   `upah` float DEFAULT NULL,
@@ -147,8 +147,8 @@
   `modifDate` datetime DEFAULT NULL,
   `modifUser` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `noKegiatanKelolaLahan` (`noKegiatanKelolaLahan`),
-  CONSTRAINT `pelaksanapekerja_ibfk_1` FOREIGN KEY (`noKegiatanKelolaLahan`) REFERENCES `kegiatankelolahlahan` (`noKegiatanKelolahLahan`)
+  KEY `noKegiatanKelolaLahan` (`noKegiatanKelolahLahan`),
+  CONSTRAINT `pelaksanapekerja_ibfk_1` FOREIGN KEY (`noKegiatanKelolahLahan`) REFERENCES `kegiatankelolahlahan` (`noKegiatanKelolahLahan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="penggunaanpupukObat" view="standard">
@@ -189,7 +189,7 @@
   `modifUser` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `nama` (`nama`),
-  CONSTRAINT `pegawai_ibfk_1` FOREIGN KEY (`nama`) REFERENCES `pelaksanapekerja` (`noKegiatanKelolaLahan`)
+  CONSTRAINT `pegawai_ibfk_1` FOREIGN KEY (`nama`) REFERENCES `pelaksanapekerja` (`noKegiatanKelolahLahan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="pupukobat" view="colnames">
