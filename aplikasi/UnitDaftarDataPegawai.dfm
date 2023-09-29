@@ -3,6 +3,7 @@ object FormDAFTARDATAPEGAWAI: TFormDAFTARDATAPEGAWAI
   Top = 165
   Width = 710
   Height = 416
+  BorderIcons = [biSystemMenu]
   Caption = 'DAFTAR DATA PEGAWAI'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -12,6 +13,7 @@ object FormDAFTARDATAPEGAWAI: TFormDAFTARDATAPEGAWAI
   Font.Style = []
   OldCreateOrder = False
   Position = poDesktopCenter
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object pnlAtas: TPanel
@@ -46,6 +48,7 @@ object FormDAFTARDATAPEGAWAI: TFormDAFTARDATAPEGAWAI
     object cxtxtdtPencarian: TcxTextEdit
       Left = 41
       Top = 9
+      Properties.OnChange = cxtxtdtPencarianPropertiesChange
       TabOrder = 1
       Text = 'cxtxtdtPencarian'
       Width = 152
@@ -57,6 +60,7 @@ object FormDAFTARDATAPEGAWAI: TFormDAFTARDATAPEGAWAI
       Height = 25
       Caption = 'Tambah'
       TabOrder = 2
+      OnClick = btnTambahClick
     end
     object btnUbah: TcxButton
       Left = 263
@@ -65,6 +69,7 @@ object FormDAFTARDATAPEGAWAI: TFormDAFTARDATAPEGAWAI
       Height = 25
       Caption = 'Ubah'
       TabOrder = 3
+      OnClick = btnUbahClick
     end
     object btnHapus: TcxButton
       Left = 317
@@ -73,6 +78,7 @@ object FormDAFTARDATAPEGAWAI: TFormDAFTARDATAPEGAWAI
       Height = 25
       Caption = 'Hapus'
       TabOrder = 4
+      OnClick = btnHapusClick
     end
     object btnKeluar: TcxButton
       Left = 367
@@ -81,6 +87,7 @@ object FormDAFTARDATAPEGAWAI: TFormDAFTARDATAPEGAWAI
       Height = 25
       Caption = 'Keluar'
       TabOrder = 5
+      OnClick = btnKeluarClick
     end
   end
   object cxgrd1: TcxGrid
@@ -99,24 +106,35 @@ object FormDAFTARDATAPEGAWAI: TFormDAFTARDATAPEGAWAI
       OptionsData.Appending = True
       object cxgrdbclmnGrid1DBTableView1id: TcxGridDBColumn
         DataBinding.FieldName = 'id'
+        Width = 36
       end
       object cxgrdbclmnGrid1DBTableView1nama: TcxGridDBColumn
+        Caption = 'Nama'
         DataBinding.FieldName = 'nama'
+        Width = 208
       end
       object cxgrdbclmnGrid1DBTableView1status: TcxGridDBColumn
+        Caption = 'Status'
         DataBinding.FieldName = 'status'
+        Width = 52
       end
       object cxgrdbclmnGrid1DBTableView1createDate: TcxGridDBColumn
+        Caption = 'Create Date'
         DataBinding.FieldName = 'createDate'
       end
       object cxgrdbclmnGrid1DBTableView1createUser: TcxGridDBColumn
+        Caption = 'Create User'
         DataBinding.FieldName = 'createUser'
+        Width = 98
       end
       object cxgrdbclmnGrid1DBTableView1modifDate: TcxGridDBColumn
+        Caption = 'Modif Date'
         DataBinding.FieldName = 'modifDate'
       end
       object cxgrdbclmnGrid1DBTableView1modifUser: TcxGridDBColumn
+        Caption = 'Modif User'
         DataBinding.FieldName = 'modifUser'
+        Width = 98
       end
     end
     object cxgrdlvlGrid1Level1: TcxGridLevel

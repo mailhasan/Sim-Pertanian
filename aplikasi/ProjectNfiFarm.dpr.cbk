@@ -14,7 +14,8 @@ uses
   UnitKelolaLahan in 'UnitKelolaLahan.pas' {FormKelolaLahan},
   UnitHasilPanen in 'UnitHasilPanen.pas' {FormHasilPanen},
   UnitPenggunaanAlat in 'UnitPenggunaanAlat.pas' {FormPenggunaanAlat},
-  UnitDaftarDataPegawai in 'UnitDaftarDataPegawai.pas' {FormDAFTARDATAPEGAWAI};
+  UnitDaftarDataPegawai in 'UnitDaftarDataPegawai.pas' {FormDAFTARDATAPEGAWAI},
+  UnitTambahDataPegawai in 'UnitTambahDataPegawai.pas' {FormTambahDataPegawai};
 
 {$R *.res}
 
@@ -33,5 +34,6 @@ begin
   Application.CreateForm(TFormHasilPanen, FormHasilPanen);
   Application.CreateForm(TFormPenggunaanAlat, FormPenggunaanAlat);
   Application.CreateForm(TFormDAFTARDATAPEGAWAI, FormDAFTARDATAPEGAWAI);
+  Application.CreateForm(TFormTambahDataPegawai, FormTambahDataPegawai);
   Application.Run;
 end.

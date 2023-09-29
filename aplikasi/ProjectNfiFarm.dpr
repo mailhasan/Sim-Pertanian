@@ -13,7 +13,8 @@ uses
   UnitHapusKegiatanKelolaLahan in 'UnitHapusKegiatanKelolaLahan.pas' {FormHapusKegiatanKelolaLahan},
   UnitKelolaLahan in 'UnitKelolaLahan.pas' {FormKelolaLahan},
   UnitHasilPanen in 'UnitHasilPanen.pas' {FormHasilPanen},
-  UnitPenggunaanAlat in 'UnitPenggunaanAlat.pas' {FormPenggunaanAlat};
+  UnitPenggunaanAlat in 'UnitPenggunaanAlat.pas' {FormPenggunaanAlat},
+  UnitDaftarDataPegawai in 'UnitDaftarDataPegawai.pas' {FormDAFTARDATAPEGAWAI};
 
 {$R *.res}
 
@@ -31,5 +32,6 @@ begin
   Application.CreateForm(TFormKelolaLahan, FormKelolaLahan);
   Application.CreateForm(TFormHasilPanen, FormHasilPanen);
   Application.CreateForm(TFormPenggunaanAlat, FormPenggunaanAlat);
+  Application.CreateForm(TFormDAFTARDATAPEGAWAI, FormDAFTARDATAPEGAWAI);
   Application.Run;
 end.

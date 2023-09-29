@@ -146,7 +146,7 @@ object FormDaftarDataLokasiLahan: TFormDaftarDataLokasiLahan
     end
     object cxlbl1: TcxLabel
       Left = 10
-      Top = 10
+      Top = 8
       Caption = 'Cari'
     end
     object cxtxtdtPencarian: TcxTextEdit

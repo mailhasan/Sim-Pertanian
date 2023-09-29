@@ -126,8 +126,9 @@ object FormDaftarDataJenisTanaman: TFormDaftarDataJenisTanaman
       Caption = 'Cari'
     end
     object cxtxtdtPencarian: TcxTextEdit
-      Left = 41
+      Left = 40
       Top = 9
+      Properties.OnChange = cxtxtdtPencarianPropertiesChange
       TabOrder = 5
       Text = 'cxtxtdtPencarian'
       Width = 152

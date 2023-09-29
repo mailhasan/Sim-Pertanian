@@ -46,6 +46,7 @@ type
     procedure btnTambahClick(Sender: TObject);
     procedure btnUbahClick(Sender: TObject);
     procedure btnHapusClick(Sender: TObject);
+    procedure cxtxtdtPencarianPropertiesChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -58,7 +59,7 @@ var
 implementation
 
 {$R *.dfm}
-uses UnitDm,UnitTambahDataJenisTanaman;
+uses UnitDm,UnitTambahDataJenisTanaman, ZDataset;
 
 
 procedure TFormDaftarDataJenisTanaman.btnKeluarClick(Sender: TObject);
@@ -115,6 +116,31 @@ if DataModule1.zqryJenisTanaman.RecordCount<=0 then
   end else
   abort;
 end;
+end;
+
+procedure TFormDaftarDataJenisTanaman.cxtxtdtPencarianPropertiesChange(
+  Sender: TObject);
+begin
+if cxtxtdtPencarian.Text = '' then
+  begin
+   with DataModule1.zqryJenisTanaman do
+   begin
+     Close;
+     SQL.Clear;
+     SQL.Text := 'select * from jenisTanaman';
+     Open;
+   end;
+  end
+  else
+  begin
+   with DataModule1.zqryJenisTanaman do
+   begin
+     Close;
+     SQL.Clear;
+     SQL.Text := 'select * from jenisTanaman where jenisTanaman like "%'+cxtxtdtPencarian.Text+'%"';
+     Open;
+   end;
+  end;
 end;
 
 end.

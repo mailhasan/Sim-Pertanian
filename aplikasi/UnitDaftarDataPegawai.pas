@@ -40,6 +40,12 @@ type
     btnUbah: TcxButton;
     btnHapus: TcxButton;
     btnKeluar: TcxButton;
+    procedure FormShow(Sender: TObject);
+    procedure cxtxtdtPencarianPropertiesChange(Sender: TObject);
+    procedure btnTambahClick(Sender: TObject);
+    procedure btnUbahClick(Sender: TObject);
+    procedure btnHapusClick(Sender: TObject);
+    procedure btnKeluarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -52,6 +58,89 @@ var
 implementation
 
 {$R *.dfm}
-uses UnitDm;
+uses UnitDm, ZDataset,UnitTambahDataPegawai;
+
+procedure TFormDAFTARDATAPEGAWAI.FormShow(Sender: TObject);
+begin
+  cxtxtdtPencarian.Text := '';
+end;
+
+procedure TFormDAFTARDATAPEGAWAI.cxtxtdtPencarianPropertiesChange(
+  Sender: TObject);
+begin
+if cxtxtdtPencarian.Text = '' then
+  begin
+   with DataModule1.zqryPegawai do
+   begin
+    Close;
+    SQL.Clear;
+    SQL.Text := 'select * from pegawai';
+    Open;
+   end;
+  end
+  else
+  begin
+   with DataModule1.zqryPegawai do
+   begin
+    Close;
+    SQL.Clear;
+    SQL.Text := 'select * from pegawai where nama like "%'+cxtxtdtPencarian.Text+'%"';
+    Open;
+   end;
+  end;
+end;
+
+procedure TFormDAFTARDATAPEGAWAI.btnTambahClick(Sender: TObject);
+begin
+ Application.CreateForm(TFormTambahDataPegawai, FormTambahDataPegawai);
+ FormTambahDataPegawai.baru;
+ FormTambahDataPegawai.ShowModal;
+end;
+
+procedure TFormDAFTARDATAPEGAWAI.btnUbahClick(Sender: TObject);
+begin
+if DataModule1.zqryPegawai.RecordCount >= 1 then
+  begin
+   Application.CreateForm(TFormTambahDataPegawai, FormTambahDataPegawai);
+   with FormTambahDataPegawai do
+   begin
+     cxtxtdtNama.Text := DataModule1.zqryPegawai.FieldByname('nama').AsString;
+     cbbStatus.Text := DataModule1.zqryPegawai.FieldByname('status').AsString;
+     cxlblId.Caption := DataModule1.zqryPegawai.FieldByname('id').AsString;
+     btnSimpan.Caption := 'Ubah';
+     ShowModal;
+   end;
+  end
+  else
+  MessageDlg('Data Tidak Di Temukan..!',mtWarning,[mbOK],0);
+end;
+
+procedure TFormDAFTARDATAPEGAWAI.btnHapusClick(Sender: TObject);
+var
+  Kode:String;
+begin
+if DataModule1.zqryPegawai.RecordCount<=0 then
+  MessageDlg('Data Tidak Di Temukan...!',mtWarning,[mbOK],0) else
+  begin
+  if MessageDlg('Anda Ingin Menghapus Data "'+DataModule1.zqryPegawai['nama']+'" ?', mtConfirmation,[mbyes,mbno],0)=mryes then
+  begin
+    Kode := DataModule1.zqryPegawai['id'];
+    with DataModule1.zqryPegawai do
+    begin
+    Close;
+    SQL.Text:='update pegawai set status="tidak aktif" WHERE id="'+Kode+'"';
+    ExecSQL;
+    SQL.Text:='select * from pegawai';
+    Open;
+  end;
+  end else
+  abort;
+end;
+end;
+
+procedure TFormDAFTARDATAPEGAWAI.btnKeluarClick(Sender: TObject);
+begin
+ Close;
+end;
 
 end.
