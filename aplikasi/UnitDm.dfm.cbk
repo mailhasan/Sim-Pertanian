@@ -123,4 +123,9 @@ object DataModule1: TDataModule1
     Left = 301
     Top = 219
   end
+  object dspelaksanapekerja: TDataSource
+    DataSet = zqrypelaksanapekerja
+    Left = 384
+    Top = 239
+  end
 end

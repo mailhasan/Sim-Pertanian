@@ -1,6 +1,6 @@
 object FormDaftarDataLokasiLahan: TFormDaftarDataLokasiLahan
-  Left = 399
-  Top = 103
+  Left = 422
+  Top = 122
   Width = 580
   Height = 533
   BorderIcons = [biSystemMenu]

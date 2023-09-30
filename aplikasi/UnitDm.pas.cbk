@@ -24,6 +24,7 @@ type
     zqryPegawai: TZQuery;
     dspegawai: TDataSource;
     zqrypelaksanapekerja: TZQuery;
+    dspelaksanapekerja: TDataSource;
     procedure conFarmAfterConnect(Sender: TObject);
   private
     { Private declarations }

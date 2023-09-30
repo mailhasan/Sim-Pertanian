@@ -64,7 +64,7 @@ uses UnitTambahDatalokasiLahan,UnitDm, Math, ZDataset;
 
 procedure TFormDaftarDataLokasiLahan.btnTambahClick(Sender: TObject);
 begin
-  Application.CreateForm(TFormDaftarDataLokasiLahan, FormDaftarDataLokasiLahan);
+  Application.CreateForm(TFormDataLokasiLahan, FormDataLokasiLahan);
   FormDataLokasiLahan.baru;
   FormDataLokasiLahan.ShowModal;
 end;
@@ -83,6 +83,7 @@ procedure TFormDaftarDataLokasiLahan.btnUbahClick(Sender: TObject);
 begin
  If DataModule1.zqryLahan.RecordCount >= 1 then
     begin
+     Application.CreateForm(TFormDataLokasiLahan, FormDataLokasiLahan);
      with FormDataLokasiLahan do
       begin
         cxtxtdtKodeLokasiLahan.Text :=  DataModule1.zqryLahan.Fieldbyname('kodeLokasiLahan').AsString;

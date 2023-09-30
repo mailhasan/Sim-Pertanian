@@ -15,25 +15,15 @@ uses
   UnitHasilPanen in 'UnitHasilPanen.pas' {FormHasilPanen},
   UnitPenggunaanAlat in 'UnitPenggunaanAlat.pas' {FormPenggunaanAlat},
   UnitDaftarDataPegawai in 'UnitDaftarDataPegawai.pas' {FormDAFTARDATAPEGAWAI},
-  UnitTambahDataPegawai in 'UnitTambahDataPegawai.pas' {FormTambahDataPegawai};
+  UnitTambahDataPegawai in 'UnitTambahDataPegawai.pas' {FormTambahDataPegawai},
+  UnitFormPelaksanaPekerja in 'UnitFormPelaksanaPekerja.pas' {FormPelaksanaPekerja};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.CreateForm(TFormUtama, FormUtama);
-  Application.CreateForm(TFormDaftarDataLokasiLahan, FormDaftarDataLokasiLahan);
   Application.CreateForm(TDataModule1, DataModule1);
-  Application.CreateForm(TFormTambahDataJenisTanaman, FormTambahDataJenisTanaman);
-  Application.CreateForm(TFormDataLokasiLahan, FormDataLokasiLahan);
-  Application.CreateForm(TFormDaftarDataJenisTanaman, FormDaftarDataJenisTanaman);
-  Application.CreateForm(TFormDaftarDataKegiatanKelolaLahan, FormDaftarDataKegiatanKelolaLahan);
-  Application.CreateForm(TFormTambahKegiatanKelolaHarian, FormTambahKegiatanKelolaHarian);
-  Application.CreateForm(TFormHapusKegiatanKelolaLahan, FormHapusKegiatanKelolaLahan);
-  Application.CreateForm(TFormKelolaLahan, FormKelolaLahan);
-  Application.CreateForm(TFormHasilPanen, FormHasilPanen);
-  Application.CreateForm(TFormPenggunaanAlat, FormPenggunaanAlat);
-  Application.CreateForm(TFormDAFTARDATAPEGAWAI, FormDAFTARDATAPEGAWAI);
-  Application.CreateForm(TFormTambahDataPegawai, FormTambahDataPegawai);
+  Application.CreateForm(TFormPelaksanaPekerja, FormPelaksanaPekerja);
   Application.Run;
 end.

@@ -98,6 +98,8 @@ begin
 end;
 
 procedure TFormDAFTARDATAPEGAWAI.btnUbahClick(Sender: TObject);
+var
+  st:string;
 begin
 if DataModule1.zqryPegawai.RecordCount >= 1 then
   begin
@@ -105,7 +107,11 @@ if DataModule1.zqryPegawai.RecordCount >= 1 then
    with FormTambahDataPegawai do
    begin
      cxtxtdtNama.Text := DataModule1.zqryPegawai.FieldByname('nama').AsString;
-     cbbStatus.Text := DataModule1.zqryPegawai.FieldByname('status').AsString;
+     if DataModule1.zqryPegawai.FieldByName('status').AsBoolean = true then
+        st := 'y'
+     else
+        st := 'n';
+     cbbStatus.Text := st;
      cxlblId.Caption := DataModule1.zqryPegawai.FieldByname('id').AsString;
      btnSimpan.Caption := 'Ubah';
      ShowModal;
