@@ -40,10 +40,14 @@ type
     dxnvbrtmPENDAPATAN: TdxNavBarItem;
     dxnvbrtmDataPegawai: TdxNavBarItem;
     dxnvbrgrpDATAMASTER: TdxNavBarGroup;
+    dxnvbrtmDataPupukObat: TdxNavBarItem;
+    dxnvbrgrpTRANSAKSI: TdxNavBarGroup;
+    dxnvbrtmPEMBELIANPUPUKOBAT: TdxNavBarItem;
     procedure dxnvbrtmDataLahanClick(Sender: TObject);
     procedure dxnvbrtmDataLokasiLahanClick(Sender: TObject);
     procedure dxnvbrtmKegiatanKelolaLahanClick(Sender: TObject);
     procedure dxnvbrtmDataPegawaiClick(Sender: TObject);
+    procedure dxnvbrtmDataPupukObatClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -56,7 +60,8 @@ var
 implementation
 
 {$R *.dfm}
-uses UnitDataLokasiLahan,UnitDaftarDataJenisTanaman,UnitDaftarDataKegiatanKelolaLahan,UnitDaftarDataPegawai;
+uses UnitDataLokasiLahan,UnitDaftarDataJenisTanaman,UnitDaftarDataKegiatanKelolaLahan,UnitDaftarDataPegawai,
+     UnitDaftarDataPupukObat;
 
 procedure TFormUtama.dxnvbrtmDataLahanClick(Sender: TObject);
 begin
@@ -80,6 +85,12 @@ procedure TFormUtama.dxnvbrtmDataPegawaiClick(Sender: TObject);
 begin
  Application.CreateForm(TFormDAFTARDATAPEGAWAI, FormDAFTARDATAPEGAWAI);
  FormDAFTARDATAPEGAWAI.ShowModal;
+end;
+
+procedure TFormUtama.dxnvbrtmDataPupukObatClick(Sender: TObject);
+begin
+ Application.CreateForm(TFormDaftarDataPupukObat, FormDaftarDataPupukObat);
+ FormDaftarDataPupukObat.ShowModal;
 end;
 
 end.

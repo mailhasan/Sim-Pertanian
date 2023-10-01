@@ -100,7 +100,7 @@ object FormUtama: TFormUtama
       Width = 188
       Height = 463
       Align = alClient
-      ActiveGroupIndex = 1
+      ActiveGroupIndex = 2
       TabOrder = 0
       View = 18
       ViewStyle.ColorSchemeName = 'Silver'
@@ -117,6 +117,18 @@ object FormUtama: TFormUtama
           end
           item
             Item = dxnvbrtmDataPegawai
+          end
+          item
+            Item = dxnvbrtmDataPupukObat
+          end>
+      end
+      object dxnvbrgrpTRANSAKSI: TdxNavBarGroup
+        Caption = 'TRANSAKSI'
+        SelectedLinkIndex = -1
+        TopVisibleLinkIndex = 0
+        Links = <
+          item
+            Item = dxnvbrtmPEMBELIANPUPUKOBAT
           end>
       end
       object dxnvbrgrpPertanian: TdxNavBarGroup
@@ -167,6 +179,13 @@ object FormUtama: TFormUtama
       object dxnvbrtmDataPegawai: TdxNavBarItem
         Caption = 'DATA PEGAWAI'
         OnClick = dxnvbrtmDataPegawaiClick
+      end
+      object dxnvbrtmDataPupukObat: TdxNavBarItem
+        Caption = 'DATA PUPUK/OBAT'
+        OnClick = dxnvbrtmDataPupukObatClick
+      end
+      object dxnvbrtmPEMBELIANPUPUKOBAT: TdxNavBarItem
+        Caption = 'PEMBELIAN PUPUK/OBAT'
       end
     end
   end

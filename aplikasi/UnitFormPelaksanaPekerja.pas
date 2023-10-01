@@ -81,6 +81,7 @@ type
     procedure btnUbahClick(Sender: TObject);
     procedure btnHapusClick(Sender: TObject);
     procedure btnTampilClick(Sender: TObject);
+    procedure btnKeluarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -266,6 +267,11 @@ if (cxdtdtMulai.Text = '') or (cxdtdtSelesai.Text = '') then
      Open;
     end;
   end;
+end;
+
+procedure TFormPelaksanaPekerja.btnKeluarClick(Sender: TObject);
+begin
+  Close;
 end;
 
 end.

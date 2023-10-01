@@ -24,6 +24,9 @@ type
     zqryPegawai: TZQuery;
     dspegawai: TDataSource;
     zqrypelaksanapekerja: TZQuery;
+    dspelaksanapekerja: TDataSource;
+    zqrypupukobat: TZQuery;
+    dspupukobat: TDataSource;
     procedure conFarmAfterConnect(Sender: TObject);
   private
     { Private declarations }
@@ -48,6 +51,7 @@ begin
   zqrypenggunaanalat.Active := True;
   zqryPegawai.Active := True;
   zqrypelaksanapekerja.Active := True;
+  zqrypupukobat.Active := True;
 end;
 
 end.

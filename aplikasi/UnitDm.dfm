@@ -123,4 +123,23 @@ object DataModule1: TDataModule1
     Left = 301
     Top = 219
   end
+  object dspelaksanapekerja: TDataSource
+    DataSet = zqrypelaksanapekerja
+    Left = 384
+    Top = 239
+  end
+  object zqrypupukobat: TZQuery
+    Connection = conFarm
+    Active = True
+    SQL.Strings = (
+      'select * from pupukobat')
+    Params = <>
+    Left = 317
+    Top = 302
+  end
+  object dspupukobat: TDataSource
+    DataSet = zqrypupukobat
+    Left = 404
+    Top = 317
+  end
 end

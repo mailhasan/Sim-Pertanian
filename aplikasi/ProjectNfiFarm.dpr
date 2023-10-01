@@ -15,7 +15,9 @@ uses
   UnitHasilPanen in 'UnitHasilPanen.pas' {FormHasilPanen},
   UnitPenggunaanAlat in 'UnitPenggunaanAlat.pas' {FormPenggunaanAlat},
   UnitDaftarDataPegawai in 'UnitDaftarDataPegawai.pas' {FormDAFTARDATAPEGAWAI},
-  UnitTambahDataPegawai in 'UnitTambahDataPegawai.pas' {FormTambahDataPegawai};
+  UnitTambahDataPegawai in 'UnitTambahDataPegawai.pas' {FormTambahDataPegawai},
+  UnitFormPelaksanaPekerja in 'UnitFormPelaksanaPekerja.pas' {FormPelaksanaPekerja},
+  UnitDaftarDataPupukObat in 'UnitDaftarDataPupukObat.pas' {FormDaftarDataPupukObat};
 
 {$R *.res}
 
@@ -23,5 +25,7 @@ begin
   Application.Initialize;
   Application.CreateForm(TFormUtama, FormUtama);
   Application.CreateForm(TDataModule1, DataModule1);
+  Application.CreateForm(TFormPelaksanaPekerja, FormPelaksanaPekerja);
+  Application.CreateForm(TFormDaftarDataPupukObat, FormDaftarDataPupukObat);
   Application.Run;
 end.
