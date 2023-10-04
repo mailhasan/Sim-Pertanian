@@ -40,6 +40,7 @@ type
     dxlytmStok: TdxLayoutItem;
     procedure btnBaruClick(Sender: TObject);
     procedure btnSimpanClick(Sender: TObject);
+    procedure btnKeluarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -56,8 +57,19 @@ implementation
 uses UnitDm,UnitUtama;
 
 procedure TFormTambahDataPupukObat.baru;
+var
+    urut,intno: integer;
+     thn,bln,tgl,code:string;
+     y,d,M : word;
 begin
-  cxtxtdtKodePupuk.Text := '';
+  DecodeDate(Now, y,M,d );
+  thn:=IntToStr(y);
+  bln:=IntToStr(M);
+  tgl:=IntToStr(d);
+
+  urut:=DataModule1.zqrypupukobat.RecordCount+0001;
+  code:=thn+bln+tgl+inttostr(urut);
+  cxtxtdtKodePupuk.Text := code;
   cxtxtdtNamaObat.Text := '';
   cbbSatuan.Text := '';
   cxcrncydtStok.Value := 0;
@@ -73,7 +85,7 @@ procedure TFormTambahDataPupukObat.btnSimpanClick(Sender: TObject);
 var
   tgl,user :String;
 begin
-if (cxtxtdtKodePupuk.Text='') or (cxtxtdtNamaObat.Text='') or (cbbSatuan.Text='') then
+if (cxtxtdtKodePupuk.Text='') or (cxtxtdtNamaObat.Text='')  then
     MessageDlg('Data Tidak Boleh Kosong...!',mtWarning,[mbOK],0)
     else
     begin
@@ -110,7 +122,7 @@ if (cxtxtdtKodePupuk.Text='') or (cxtxtdtNamaObat.Text='') or (cbbSatuan.Text=''
          begin
           Close;
           SQL.Clear;
-          SQL.Text := 'update pupukobat set kodePupukObat=:kodePupukObat,namaPupukObat=:namaPupukObat,satuan=:satuan,stok=:stok,modifDate=:modifDate,modifUser=:modifUser where id:id';
+          SQL.Text := 'update pupukobat set namaPupukObat=:namaPupukObat,satuan=:satuan,stok=:stok,modifDate=:modifDate,modifUser=:modifUser where kodePupukObat=:kodePupukObat';
           Params.ParamByName('kodePupukObat').Value := cxtxtdtKodePupuk.Text;
           Params.ParamByName('namaPupukObat').Value := cxtxtdtNamaObat.Text;
           Params.ParamByName('satuan').Value := cbbSatuan.Text;
@@ -123,6 +135,11 @@ if (cxtxtdtKodePupuk.Text='') or (cxtxtdtNamaObat.Text='') or (cbbSatuan.Text=''
          end;
         end;
     end;
+end;
+
+procedure TFormTambahDataPupukObat.btnKeluarClick(Sender: TObject);
+begin
+ Close;
 end;
 
 end.

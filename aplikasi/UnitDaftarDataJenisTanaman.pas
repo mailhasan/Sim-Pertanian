@@ -88,7 +88,7 @@ begin
         cxtxtdtJenisTanaman.Text := DataModule1.zqryJenisTanaman.Fieldbyname('jenisTanaman').AsString;
         cbbStatus.Text :=  DataModule1.zqryJenisTanaman.Fieldbyname('status').AsString;
         btnSimpan.Caption := 'Ubah';
-        Show;
+        ShowModal;
       end;
     end
  else

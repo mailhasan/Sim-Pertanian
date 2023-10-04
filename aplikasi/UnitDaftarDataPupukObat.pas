@@ -45,6 +45,9 @@ type
     procedure cxtxtdtPencarianPropertiesChange(Sender: TObject);
     procedure btnTambahClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure btnKeluarClick(Sender: TObject);
+    procedure btnUbahClick(Sender: TObject);
+    procedure btnHapusClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -94,6 +97,52 @@ end;
 procedure TFormDaftarDataPupukObat.FormShow(Sender: TObject);
 begin
  cxtxtdtPencarian.Text := '';
+end;
+
+procedure TFormDaftarDataPupukObat.btnKeluarClick(Sender: TObject);
+begin
+ Close;
+end;
+
+procedure TFormDaftarDataPupukObat.btnUbahClick(Sender: TObject);
+begin
+If DataModule1.zqrypupukobat.RecordCount >= 1 then
+    begin
+     with FormTambahDataPupukObat do
+      begin
+        cxtxtdtKodePupuk.Text :=  DataModule1.zqrypupukobat.Fieldbyname('kodePupukObat').AsString;
+        cxtxtdtNamaObat.Text := DataModule1.zqrypupukobat.Fieldbyname('namaPupukObat').AsString;
+        cbbSatuan.Text :=  DataModule1.zqrypupukobat.Fieldbyname('satuan').AsString;
+        cxcrncydtStok.Value := DataModule1.zqrypupukobat.Fieldbyname('stok').Value;
+        btnSimpan.Caption := 'Ubah';
+        ShowModal;
+      end;
+    end
+ else
+    MessageDlg('Data Tidak Di Temukan...',mtWarning,[mbOK],0); 
+end;
+
+procedure TFormDaftarDataPupukObat.btnHapusClick(Sender: TObject);
+var
+  Kode:String;
+begin
+if DataModule1.zqrypupukobat.RecordCount<=0 then
+  MessageDlg('Data Tidak Di Temukan...!',mtWarning,[mbOK],0) else
+  begin
+  if MessageDlg('Anda Ingin Menghapus Data "'+DataModule1.zqrypupukobat['namaPupukObat']+'" ?', mtConfirmation,[mbyes,mbno],0)=mryes then
+  begin
+    Kode := DataModule1.zqrypupukobat['kodePupukObat'];
+    with DataModule1.zqrypupukobat do
+    begin
+    Close;
+    SQL.Text:='delete from pupukobat where kodePupukObat="'+Kode+'" ';
+    ExecSQL;
+    SQL.Text:='select * from pupukobat';
+    Open;
+    end;
+  end else
+  abort;
+end;
 end;
 
 end.

@@ -148,7 +148,9 @@
   `modifUser` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `noKegiatanKelolaLahan` (`noKegiatanKelolahLahan`),
-  CONSTRAINT `pelaksanapekerja_ibfk_1` FOREIGN KEY (`noKegiatanKelolahLahan`) REFERENCES `kegiatankelolahlahan` (`noKegiatanKelolahLahan`)
+  KEY `nama` (`nama`),
+  CONSTRAINT `pelaksanapekerja_ibfk_1` FOREIGN KEY (`noKegiatanKelolahLahan`) REFERENCES `kegiatankelolahlahan` (`noKegiatanKelolahLahan`),
+  CONSTRAINT `pelaksanapekerja_ibfk_2` FOREIGN KEY (`nama`) REFERENCES `pegawai` (`nama`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="penggunaanpupukObat" view="standard">
@@ -189,11 +191,11 @@
   `modifUser` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `nama` (`nama`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1</sql_create_table>
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="pupukobat" view="colnames">
-<left>435</left>
-<top>689</top>
+<left>461</left>
+<top>688</top>
 <width>140</width>
 <height>226</height>
 <sql_create_table>CREATE TABLE `pupukobat` (
@@ -205,8 +207,7 @@
   `createUser` varchar(50) DEFAULT NULL,
   `modifDate` datetime DEFAULT NULL,
   `modifUser` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`kodePupukObat`),
-  CONSTRAINT `pupukobat_ibfk_1` FOREIGN KEY (`kodePupukObat`) REFERENCES `detailpembelianpupukobat` (`noPembelian`)
+  PRIMARY KEY (`kodePupukObat`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="pembelianPupukObat" view="colnames">
@@ -245,8 +246,10 @@
   `modifDate` datetime DEFAULT NULL,
   `modifUser` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
+  KEY `kodePupukObat` (`kodePupukObat`),
   KEY `noPembelian` (`noPembelian`),
-  CONSTRAINT `detailpembelianpupukobat_ibfk_1` FOREIGN KEY (`noPembelian`) REFERENCES `pembelianpupukobat` (`noPembelian`)
+  CONSTRAINT `detailpembelianpupukobat_ibfk_1` FOREIGN KEY (`kodePupukObat`) REFERENCES `pupukobat` (`kodePupukObat`),
+  CONSTRAINT `detailpembelianpupukobat_ibfk_2` FOREIGN KEY (`noPembelian`) REFERENCES `pembelianpupukobat` (`noPembelian`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 </tables>

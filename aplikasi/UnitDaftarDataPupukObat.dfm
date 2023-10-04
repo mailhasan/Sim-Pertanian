@@ -104,6 +104,7 @@ object FormDaftarDataPupukObat: TFormDaftarDataPupukObat
       Height = 25
       Caption = 'Ubah'
       TabOrder = 1
+      OnClick = btnUbahClick
     end
     object btnHapus: TcxButton
       Left = 317
@@ -112,6 +113,7 @@ object FormDaftarDataPupukObat: TFormDaftarDataPupukObat
       Height = 25
       Caption = 'Hapus'
       TabOrder = 2
+      OnClick = btnHapusClick
     end
     object btnKeluar: TcxButton
       Left = 367
@@ -120,6 +122,7 @@ object FormDaftarDataPupukObat: TFormDaftarDataPupukObat
       Height = 25
       Caption = 'Keluar'
       TabOrder = 3
+      OnClick = btnKeluarClick
     end
     object cxlbl1: TcxLabel
       Left = 10

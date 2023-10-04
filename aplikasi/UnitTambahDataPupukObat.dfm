@@ -47,6 +47,7 @@ object FormTambahDataPupukObat: TFormTambahDataPupukObat
       Height = 25
       Caption = 'Keluar'
       TabOrder = 2
+      OnClick = btnKeluarClick
     end
     object cxlblId: TcxLabel
       Left = 241
@@ -80,32 +81,33 @@ object FormTambahDataPupukObat: TFormTambahDataPupukObat
     TabOrder = 2
     TabStop = False
     object cxtxtdtKodePupuk: TcxTextEdit
-      Left = 84
-      Top = 41
+      Left = 86
+      Top = 28
       Style.HotTrack = False
       TabOrder = 0
       Text = 'cxtxtdtKodePupuk'
       Width = 121
     end
     object cxtxtdtNamaObat: TcxTextEdit
-      Left = 84
-      Top = 68
+      Left = 86
+      Top = 55
       Style.HotTrack = False
       TabOrder = 1
       Text = 'cxtxtdtNamaObat'
       Width = 121
     end
     object cbbSatuan: TcxLookupComboBox
-      Left = 84
-      Top = 95
+      Left = 86
+      Top = 82
       Properties.ListColumns = <>
       Style.HotTrack = False
       TabOrder = 2
       Width = 145
     end
     object cxcrncydtStok: TcxCurrencyEdit
-      Left = 84
-      Top = 122
+      Left = 86
+      Top = 109
+      Properties.DisplayFormat = '0'
       Style.HotTrack = False
       TabOrder = 3
       Width = 121
@@ -117,7 +119,7 @@ object FormTambahDataPupukObat: TFormTambahDataPupukObat
       Hidden = True
       ShowBorder = False
       object dxlytgrpdxlytcntrl1Group1: TdxLayoutGroup
-        CaptionOptions.Text = 'Isi an Data'
+        CaptionOptions.Text = 'Isian Data'
         ButtonOptions.Buttons = <>
         object dxlytmKodePupuk: TdxLayoutItem
           CaptionOptions.Text = 'Kode Pupuk'
