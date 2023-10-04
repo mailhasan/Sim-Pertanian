@@ -195,4 +195,10 @@ object FormUtama: TFormUtama
     object dxlytwblkndfl1: TdxLayoutWebLookAndFeel
     end
   end
+  object dxskncntrlr1: TdxSkinController
+    NativeStyle = False
+    SkinName = 'Office2007Silver'
+    Left = 328
+    Top = 67
+  end
 end

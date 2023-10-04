@@ -16,7 +16,7 @@ uses
   dxSkinSilver, dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008,
   dxSkinsDefaultPainters, dxSkinValentine, dxSkinXmas2008Blue,
   dxSkinsdxNavBar2Painter, cxClasses, dxNavBarBase, dxNavBarCollns,
-  dxNavBar;
+  dxNavBar, dxSkinsForm;
 
 type
   TFormUtama = class(TForm)
@@ -43,6 +43,7 @@ type
     dxnvbrtmDataPupukObat: TdxNavBarItem;
     dxnvbrgrpTRANSAKSI: TdxNavBarGroup;
     dxnvbrtmPEMBELIANPUPUKOBAT: TdxNavBarItem;
+    dxskncntrlr1: TdxSkinController;
     procedure dxnvbrtmDataLahanClick(Sender: TObject);
     procedure dxnvbrtmDataLokasiLahanClick(Sender: TObject);
     procedure dxnvbrtmKegiatanKelolaLahanClick(Sender: TObject);

@@ -17,7 +17,8 @@ uses
   UnitDaftarDataPegawai in 'UnitDaftarDataPegawai.pas' {FormDAFTARDATAPEGAWAI},
   UnitTambahDataPegawai in 'UnitTambahDataPegawai.pas' {FormTambahDataPegawai},
   UnitFormPelaksanaPekerja in 'UnitFormPelaksanaPekerja.pas' {FormPelaksanaPekerja},
-  UnitDaftarDataPupukObat in 'UnitDaftarDataPupukObat.pas' {FormDaftarDataPupukObat};
+  UnitDaftarDataPupukObat in 'UnitDaftarDataPupukObat.pas' {FormDaftarDataPupukObat},
+  UnitTambahDataPupukObat in 'UnitTambahDataPupukObat.pas' {FormTambahDataPupukObat};
 
 {$R *.res}
 
@@ -27,5 +28,6 @@ begin
   Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TFormPelaksanaPekerja, FormPelaksanaPekerja);
   Application.CreateForm(TFormDaftarDataPupukObat, FormDaftarDataPupukObat);
+  Application.CreateForm(TFormTambahDataPupukObat, FormTambahDataPupukObat);
   Application.Run;
 end.

@@ -38,6 +38,7 @@ object FormTambahDataPupukObat: TFormTambahDataPupukObat
       Height = 25
       Caption = 'Simpan'
       TabOrder = 1
+      OnClick = btnSimpanClick
     end
     object btnKeluar: TcxButton
       Left = 187
@@ -79,32 +80,32 @@ object FormTambahDataPupukObat: TFormTambahDataPupukObat
     TabOrder = 2
     TabStop = False
     object cxtxtdtKodePupuk: TcxTextEdit
-      Left = 86
-      Top = 28
+      Left = 84
+      Top = 41
       Style.HotTrack = False
       TabOrder = 0
       Text = 'cxtxtdtKodePupuk'
       Width = 121
     end
     object cxtxtdtNamaObat: TcxTextEdit
-      Left = 86
-      Top = 55
+      Left = 84
+      Top = 68
       Style.HotTrack = False
       TabOrder = 1
       Text = 'cxtxtdtNamaObat'
       Width = 121
     end
     object cbbSatuan: TcxLookupComboBox
-      Left = 86
-      Top = 82
+      Left = 84
+      Top = 95
       Properties.ListColumns = <>
       Style.HotTrack = False
       TabOrder = 2
       Width = 145
     end
     object cxcrncydtStok: TcxCurrencyEdit
-      Left = 86
-      Top = 109
+      Left = 84
+      Top = 122
       Style.HotTrack = False
       TabOrder = 3
       Width = 121

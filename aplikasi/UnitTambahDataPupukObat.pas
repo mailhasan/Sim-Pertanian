@@ -39,6 +39,7 @@ type
     cxcrncydtStok: TcxCurrencyEdit;
     dxlytmStok: TdxLayoutItem;
     procedure btnBaruClick(Sender: TObject);
+    procedure btnSimpanClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -52,6 +53,7 @@ var
 implementation
 
 {$R *.dfm}
+uses UnitDm,UnitUtama;
 
 procedure TFormTambahDataPupukObat.baru;
 begin
@@ -65,6 +67,62 @@ end;
 procedure TFormTambahDataPupukObat.btnBaruClick(Sender: TObject);
 begin
  baru;
+end;
+
+procedure TFormTambahDataPupukObat.btnSimpanClick(Sender: TObject);
+var
+  tgl,user :String;
+begin
+if (cxtxtdtKodePupuk.Text='') or (cxtxtdtNamaObat.Text='') or (cbbSatuan.Text='') then
+    MessageDlg('Data Tidak Boleh Kosong...!',mtWarning,[mbOK],0)
+    else
+    begin
+      tgl := FormatDateTime('YYYY-MM-dd HH:MM:SS.SSS',Now);
+      user := FormUtama.stat1.Panels[0].Text;
+      if btnSimpan.Caption = 'Simpan' then
+        begin
+         /// simpan
+         if DataModule1.zqrypupukobat.Locate('kodePupukObat',cxtxtdtKodePupuk.Text,[])  then
+             MessageDlg('Kode Data Sudah Digunakan...!',mtWarning,[mbOK],0)
+          else
+          begin
+            with DataModule1.zqrypupukobat do
+            begin
+              Close;
+              SQL.Clear;
+              SQL.Text := 'insert into pupukobat (kodePupukObat,namaPupukObat,satuan,stok,createDate,createUser) values (:kodePupukObat,:namaPupukObat,:satuan,:stok,:createDate,:createUser)';
+              Params.ParamByName('kodePupukObat').Value := cxtxtdtKodePupuk.Text;
+              Params.ParamByName('namaPupukObat').Value := cxtxtdtNamaObat.Text;
+              Params.ParamByName('satuan').Value := cbbSatuan.Text;
+              Params.ParamByName('stok').Value := cxcrncydtStok.Value;
+              Params.ParamByName('createDate').Value := tgl;
+              Params.ParamByName('createUser').Value := user;
+              ExecSQL;
+              SQL.Text := 'select * from pupukobat';
+              Open;
+            end;
+          end;
+        end
+        else
+        begin
+         /// update
+         with DataModule1.zqrypupukobat do
+         begin
+          Close;
+          SQL.Clear;
+          SQL.Text := 'update pupukobat set kodePupukObat=:kodePupukObat,namaPupukObat=:namaPupukObat,satuan=:satuan,stok=:stok,modifDate=:modifDate,modifUser=:modifUser where id:id';
+          Params.ParamByName('kodePupukObat').Value := cxtxtdtKodePupuk.Text;
+          Params.ParamByName('namaPupukObat').Value := cxtxtdtNamaObat.Text;
+          Params.ParamByName('satuan').Value := cbbSatuan.Text;
+          Params.ParamByName('stok').Value := cxcrncydtStok.Value;
+          Params.ParamByName('modifDate').Value := tgl;
+          Params.ParamByName('modifUser').Value := user;
+          ExecSQL;
+          SQL.Text := 'select * from pupukobat';
+          Open;
+         end;
+        end;
+    end;
 end;
 
 end.

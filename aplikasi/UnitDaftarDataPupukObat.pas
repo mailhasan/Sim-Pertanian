@@ -87,6 +87,7 @@ end;
 procedure TFormDaftarDataPupukObat.btnTambahClick(Sender: TObject);
 begin
  Application.CreateForm(TFormTambahDataPupukObat, FormTambahDataPupukObat);
+ FormTambahDataPupukObat.baru;
  FormTambahDataPupukObat.ShowModal;
 end;
 
