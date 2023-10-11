@@ -20,7 +20,8 @@ uses
   UnitDaftarDataPupukObat in 'UnitDaftarDataPupukObat.pas' {FormDaftarDataPupukObat},
   UnitTambahDataPupukObat in 'UnitTambahDataPupukObat.pas' {FormTambahDataPupukObat},
   UnitSatuan in 'UnitSatuan.pas' {FormSatuan},
-  UnitDataPembelianPupukObat in 'UnitDataPembelianPupukObat.pas' {FormDaftarDataPembelianPupukObat};
+  UnitDataPembelianPupukObat in 'UnitDataPembelianPupukObat.pas' {FormDaftarDataPembelianPupukObat},
+  UnitTambahDataPembelianPupukObat in 'UnitTambahDataPembelianPupukObat.pas' {FormTambahDataPembelianPupukObat};
 
 {$R *.res}
 
@@ -33,5 +34,6 @@ begin
   Application.CreateForm(TFormTambahDataPupukObat, FormTambahDataPupukObat);
   Application.CreateForm(TFormSatuan, FormSatuan);
   Application.CreateForm(TFormDaftarDataPembelianPupukObat, FormDaftarDataPembelianPupukObat);
+  Application.CreateForm(TFormTambahDataPembelianPupukObat, FormTambahDataPembelianPupukObat);
   Application.Run;
 end.

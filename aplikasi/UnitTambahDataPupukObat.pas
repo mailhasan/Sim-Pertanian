@@ -38,9 +38,14 @@ type
     dxlytmSatuan: TdxLayoutItem;
     cxcrncydtStok: TcxCurrencyEdit;
     dxlytmStok: TdxLayoutItem;
+    cxlbl1: TcxLabel;
+    dxlytmdxlytcntrl1Item1: TdxLayoutItem;
+    pm1: TPopupMenu;
+    ambahSatuan1: TMenuItem;
     procedure btnBaruClick(Sender: TObject);
     procedure btnSimpanClick(Sender: TObject);
     procedure btnKeluarClick(Sender: TObject);
+    procedure ambahSatuan1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -54,7 +59,7 @@ var
 implementation
 
 {$R *.dfm}
-uses UnitDm,UnitUtama;
+uses UnitDm,UnitUtama,UnitSatuan;
 
 procedure TFormTambahDataPupukObat.baru;
 var
@@ -140,6 +145,12 @@ end;
 procedure TFormTambahDataPupukObat.btnKeluarClick(Sender: TObject);
 begin
  Close;
+end;
+
+procedure TFormTambahDataPupukObat.ambahSatuan1Click(Sender: TObject);
+begin
+ Application.CreateForm(TFormSatuan, FormSatuan);
+ FormSatuan.ShowModal;
 end;
 
 end.

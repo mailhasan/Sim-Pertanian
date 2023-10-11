@@ -21,7 +21,14 @@ object FormUtama: TFormUtama
     Width = 963
     Height = 41
     Align = alTop
+    Caption = 'Aplikasi Pencatatan Pertanian Dan Peternakan Sapi'
     Color = 15000804
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Palatino Linotype'
+    Font.Style = [fsBold]
+    ParentFont = False
     TabOrder = 0
     object pnlAtasKanan: TPanel
       Left = 1
@@ -186,6 +193,7 @@ object FormUtama: TFormUtama
       end
       object dxnvbrtmPEMBELIANPUPUKOBAT: TdxNavBarItem
         Caption = 'PEMBELIAN PUPUK/OBAT'
+        OnClick = dxnvbrtmPEMBELIANPUPUKOBATClick
       end
     end
   end
@@ -196,8 +204,8 @@ object FormUtama: TFormUtama
     end
   end
   object dxskncntrlr1: TdxSkinController
-    NativeStyle = False
-    SkinName = 'Office2007Silver'
+    Kind = lfFlat
+    SkinName = 'DarkSide'
     Left = 328
     Top = 67
   end

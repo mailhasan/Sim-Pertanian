@@ -219,6 +219,7 @@
   `noPembelian` varchar(50) NOT NULL,
   `tanggalPembelian` datetime DEFAULT NULL,
   `totalPembelian` float DEFAULT NULL,
+  `sisaPembayaran` float DEFAULT NULL,
   `status` enum('lunas','belum lunas') DEFAULT NULL,
   `createDate` datetime DEFAULT NULL,
   `createUser` varchar(50) DEFAULT NULL,
@@ -251,6 +252,17 @@
   CONSTRAINT `detailpembelianpupukobat_ibfk_1` FOREIGN KEY (`kodePupukObat`) REFERENCES `pupukobat` (`kodePupukObat`),
   CONSTRAINT `detailpembelianpupukobat_ibfk_2` FOREIGN KEY (`noPembelian`) REFERENCES `pembelianpupukobat` (`noPembelian`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="satuan" view="colnames">
+<left>625</left>
+<top>755</top>
+<width>84</width>
+<height>107</height>
+<sql_create_table>CREATE TABLE `satuan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `satuan` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 </tables>
 </canvas>

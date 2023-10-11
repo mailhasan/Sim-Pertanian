@@ -27,6 +27,10 @@ type
     dspelaksanapekerja: TDataSource;
     zqrypupukobat: TZQuery;
     dspupukobat: TDataSource;
+    zqrySatuan: TZQuery;
+    dsSatuan: TDataSource;
+    zqrypembelianPupukObat: TZQuery;
+    dspembelianPupukObat: TDataSource;
     procedure conFarmAfterConnect(Sender: TObject);
   private
     { Private declarations }
@@ -52,6 +56,8 @@ begin
   zqryPegawai.Active := True;
   zqrypelaksanapekerja.Active := True;
   zqrypupukobat.Active := True;
+  zqrySatuan.Active := True;
+  zqrypembelianPupukObat.Active := True;
 end;
 
 end.

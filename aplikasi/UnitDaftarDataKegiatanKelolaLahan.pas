@@ -33,7 +33,7 @@ type
     cxtxtdtPencarian: TcxTextEdit;
     cxlbl2: TcxLabel;
     cbbStatus: TcxComboBox;
-    pnlKanan: TPanel;
+    pnlKiri: TPanel;
     dxnvbr1: TdxNavBar;
     dxnvbrgrpMenu: TdxNavBarGroup;
     dxnvbrtmKegiatan: TdxNavBarItem;

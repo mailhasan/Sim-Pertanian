@@ -181,7 +181,7 @@ object FormDaftarDataKegiatanKelolaLahan: TFormDaftarDataKegiatanKelolaLahan
     ParentFont = False
     TabOrder = 1
   end
-  object pnlKanan: TPanel
+  object pnlKiri: TPanel
     Left = 0
     Top = 41
     Width = 190

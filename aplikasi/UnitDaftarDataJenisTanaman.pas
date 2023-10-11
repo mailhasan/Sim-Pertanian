@@ -82,6 +82,7 @@ procedure TFormDaftarDataJenisTanaman.btnUbahClick(Sender: TObject);
 begin
  If DataModule1.zqryJenisTanaman.RecordCount >= 1 then
     begin
+    Application.CreateForm(TFormTambahDataJenisTanaman, FormTambahDataJenisTanaman);
      with FormTambahDataJenisTanaman do
       begin
         cxtxtdtKodeJenisTanaman.Text :=  DataModule1.zqryJenisTanaman.Fieldbyname('kodeJenisTanaman').AsString;

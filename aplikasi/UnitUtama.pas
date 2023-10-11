@@ -49,6 +49,7 @@ type
     procedure dxnvbrtmKegiatanKelolaLahanClick(Sender: TObject);
     procedure dxnvbrtmDataPegawaiClick(Sender: TObject);
     procedure dxnvbrtmDataPupukObatClick(Sender: TObject);
+    procedure dxnvbrtmPEMBELIANPUPUKOBATClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -62,7 +63,7 @@ implementation
 
 {$R *.dfm}
 uses UnitDataLokasiLahan,UnitDaftarDataJenisTanaman,UnitDaftarDataKegiatanKelolaLahan,UnitDaftarDataPegawai,
-     UnitDaftarDataPupukObat;
+     UnitDaftarDataPupukObat,UnitDataPembelianPupukObat;
 
 procedure TFormUtama.dxnvbrtmDataLahanClick(Sender: TObject);
 begin
@@ -92,6 +93,12 @@ procedure TFormUtama.dxnvbrtmDataPupukObatClick(Sender: TObject);
 begin
  Application.CreateForm(TFormDaftarDataPupukObat, FormDaftarDataPupukObat);
  FormDaftarDataPupukObat.ShowModal;
+end;
+
+procedure TFormUtama.dxnvbrtmPEMBELIANPUPUKOBATClick(Sender: TObject);
+begin
+ Application.CreateForm(TFormDaftarDataPembelianPupukObat, FormDaftarDataPembelianPupukObat);
+ FormDaftarDataPembelianPupukObat.ShowModal;
 end;
 
 end.

@@ -1,8 +1,8 @@
 object FormTambahDataPupukObat: TFormTambahDataPupukObat
   Left = 474
   Top = 174
-  Width = 336
-  Height = 284
+  Width = 355
+  Height = 300
   Caption = 'Tambah Data Pupuk/Obat'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -16,8 +16,8 @@ object FormTambahDataPupukObat: TFormTambahDataPupukObat
   TextHeight = 13
   object pnlBawah: TPanel
     Left = 0
-    Top = 205
-    Width = 320
+    Top = 221
+    Width = 339
     Height = 41
     Align = alBottom
     Color = 15000804
@@ -59,7 +59,7 @@ object FormTambahDataPupukObat: TFormTambahDataPupukObat
   object pnlAtas: TPanel
     Left = 0
     Top = 0
-    Width = 320
+    Width = 339
     Height = 41
     Align = alTop
     Caption = 'Form Data Pupuk/Obat'
@@ -75,8 +75,8 @@ object FormTambahDataPupukObat: TFormTambahDataPupukObat
   object dxlytcntrl1: TdxLayoutControl
     Left = 0
     Top = 41
-    Width = 320
-    Height = 164
+    Width = 339
+    Height = 180
     Align = alClient
     TabOrder = 2
     TabStop = False
@@ -99,18 +99,32 @@ object FormTambahDataPupukObat: TFormTambahDataPupukObat
     object cbbSatuan: TcxLookupComboBox
       Left = 86
       Top = 82
-      Properties.ListColumns = <>
+      PopupMenu = pm1
+      Properties.CaseSensitiveSearch = True
+      Properties.KeyFieldNames = 'satuan'
+      Properties.ListColumns = <
+        item
+          Caption = 'Satuan'
+          FieldName = 'satuan'
+        end>
+      Properties.ListSource = DataModule1.dsSatuan
       Style.HotTrack = False
       TabOrder = 2
       Width = 145
     end
     object cxcrncydtStok: TcxCurrencyEdit
       Left = 86
-      Top = 109
+      Top = 132
       Properties.DisplayFormat = '0'
       Style.HotTrack = False
-      TabOrder = 3
+      TabOrder = 4
       Width = 121
+    end
+    object cxlbl1: TcxLabel
+      Left = 22
+      Top = 109
+      Caption = '(Klik Kanan Di combo box Satuan Untuk Tambah Baru)'
+      Style.HotTrack = False
     end
     object dxlytgrpLayoutControl1Group_Root: TdxLayoutGroup
       AlignHorz = ahClient
@@ -132,8 +146,14 @@ object FormTambahDataPupukObat: TFormTambahDataPupukObat
           ControlOptions.ShowBorder = False
         end
         object dxlytmSatuan: TdxLayoutItem
-          CaptionOptions.Text = 'Satuan'
+          CaptionOptions.Text = 'Satuan '
           Control = cbbSatuan
+          ControlOptions.ShowBorder = False
+        end
+        object dxlytmdxlytcntrl1Item1: TdxLayoutItem
+          CaptionOptions.Text = 'cxLabel1'
+          CaptionOptions.Visible = False
+          Control = cxlbl1
           ControlOptions.ShowBorder = False
         end
         object dxlytmStok: TdxLayoutItem
@@ -142,6 +162,14 @@ object FormTambahDataPupukObat: TFormTambahDataPupukObat
           ControlOptions.ShowBorder = False
         end
       end
+    end
+  end
+  object pm1: TPopupMenu
+    Left = 267
+    Top = 213
+    object ambahSatuan1: TMenuItem
+      Caption = 'Tambah Satuan'
+      OnClick = ambahSatuan1Click
     end
   end
 end

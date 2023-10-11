@@ -142,4 +142,32 @@ object DataModule1: TDataModule1
     Left = 404
     Top = 317
   end
+  object zqrySatuan: TZQuery
+    Connection = conFarm
+    Active = True
+    SQL.Strings = (
+      'select * from satuan')
+    Params = <>
+    Left = 314
+    Top = 377
+  end
+  object dsSatuan: TDataSource
+    DataSet = zqrySatuan
+    Left = 382
+    Top = 385
+  end
+  object zqrypembelianPupukObat: TZQuery
+    Connection = conFarm
+    Active = True
+    SQL.Strings = (
+      'select * from pembelianPupukObat')
+    Params = <>
+    Left = 447
+    Top = 26
+  end
+  object dspembelianPupukObat: TDataSource
+    DataSet = zqrypembelianPupukObat
+    Left = 532
+    Top = 48
+  end
 end
