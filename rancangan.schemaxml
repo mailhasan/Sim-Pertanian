@@ -195,7 +195,7 @@
 </table>
 <table name="pupukobat" view="colnames">
 <left>461</left>
-<top>688</top>
+<top>698</top>
 <width>140</width>
 <height>226</height>
 <sql_create_table>CREATE TABLE `pupukobat` (
@@ -212,7 +212,7 @@
 </table>
 <table name="pembelianPupukObat" view="colnames">
 <left>31</left>
-<top>698</top>
+<top>714</top>
 <width>147</width>
 <height>209</height>
 <sql_create_table>CREATE TABLE `pembelianpupukobat` (
@@ -229,9 +229,9 @@
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="detailPembelianPupukObat" view="colnames">
-<left>242</left>
-<top>691</top>
-<width>153</width>
+<left>234</left>
+<top>705</top>
+<width>168</width>
 <height>277</height>
 <sql_create_table>CREATE TABLE `detailpembelianpupukobat` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -254,8 +254,8 @@
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="satuan" view="colnames">
-<left>625</left>
-<top>755</top>
+<left>623</left>
+<top>701</top>
 <width>84</width>
 <height>107</height>
 <sql_create_table>CREATE TABLE `satuan` (
@@ -263,6 +263,23 @@
   `satuan` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="detailpembelianpupukobattemp" view="colnames">
+<left>30</left>
+<top>939</top>
+<width>153</width>
+<height>226</height>
+<sql_create_table>CREATE TABLE `detailpembelianpupukobattemp` (
+  `noPembelian` varchar(50) DEFAULT NULL,
+  `kodePupukObat` varchar(10) DEFAULT NULL,
+  `namaPupukObat` varchar(150) DEFAULT NULL,
+  `satuan` varchar(50) DEFAULT NULL,
+  `jumlahPembelian` float DEFAULT NULL,
+  `hargaBeli` float DEFAULT NULL,
+  `subTotalPembelian` float DEFAULT NULL,
+  `createDate` datetime DEFAULT NULL,
+  `createUser` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 </tables>
 </canvas>

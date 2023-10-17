@@ -3,7 +3,7 @@ object DataModule1: TDataModule1
   Left = 426
   Top = 206
   Height = 487
-  Width = 665
+  Width = 776
   object conFarm: TZConnection
     ControlsCodePage = cGET_ACP
     AutoEncodeStrings = False
@@ -169,5 +169,33 @@ object DataModule1: TDataModule1
     DataSet = zqrypembelianPupukObat
     Left = 532
     Top = 48
+  end
+  object zqrydetailPembelianPupukObat: TZQuery
+    Connection = conFarm
+    Active = True
+    SQL.Strings = (
+      'select * from detailPembelianPupukObat')
+    Params = <>
+    Left = 481
+    Top = 117
+  end
+  object dsdetailPembelianPupukObat: TDataSource
+    DataSet = zqrydetailPembelianPupukObat
+    Left = 593
+    Top = 142
+  end
+  object zqrydetailpembelianpupukobattemp: TZQuery
+    Connection = conFarm
+    Active = True
+    SQL.Strings = (
+      'select * from detailpembelianpupukobattemp')
+    Params = <>
+    Left = 493
+    Top = 174
+  end
+  object dsdetailpembelianpupukobattemp: TDataSource
+    DataSet = zqrydetailpembelianpupukobattemp
+    Left = 602
+    Top = 214
   end
 end

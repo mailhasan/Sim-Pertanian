@@ -56,134 +56,180 @@ object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
       Left = 1
       Top = 1
       Width = 875
-      Height = 179
+      Height = 186
       Align = alTop
       TabOrder = 0
       TabStop = False
-      LayoutLookAndFeel = FormUtama.dxlytwblkndfl1
       object cxtxtdtNoPembelian: TcxTextEdit
-        Left = 94
-        Top = 36
-        Style.BorderColor = clWindowFrame
-        Style.BorderStyle = ebsSingle
+        Left = 93
+        Top = 28
         Style.HotTrack = False
         TabOrder = 0
         Text = 'cxtxtdtNoPembelian'
         Width = 121
       end
       object cxdtdtTglPembelian: TcxDateEdit
-        Left = 293
-        Top = 36
-        Style.BorderColor = clWindowFrame
-        Style.BorderStyle = ebsSingle
+        Left = 323
+        Top = 28
         Style.HotTrack = False
-        Style.ButtonStyle = btsHotFlat
-        Style.PopupBorderStyle = epbsSingle
         TabOrder = 1
-        Width = 121
+        Width = 90
       end
       object cxcrncydtTotalPembelian: TcxCurrencyEdit
-        Left = 501
-        Top = 36
-        Style.BorderColor = clWindowFrame
-        Style.BorderStyle = ebsSingle
+        Left = 500
+        Top = 28
         Style.HotTrack = False
         TabOrder = 2
         Width = 121
       end
       object cbbNamaObat: TcxLookupComboBox
-        Left = 94
-        Top = 95
+        Left = 93
+        Top = 85
         Properties.ListColumns = <>
-        Style.BorderColor = clWindowFrame
-        Style.BorderStyle = ebsSingle
         Style.HotTrack = False
-        Style.ButtonStyle = btsHotFlat
-        Style.PopupBorderStyle = epbsSingle
         TabOrder = 3
-        Width = 145
+        Width = 482
       end
       object cxtxtdtSatuan: TcxTextEdit
-        Left = 94
-        Top = 122
-        Style.BorderColor = clWindowFrame
-        Style.BorderStyle = ebsSingle
+        Left = 93
+        Top = 112
         Style.HotTrack = False
         TabOrder = 4
         Text = 'cxtxtdtSatuan'
         Width = 121
       end
       object cxcrncydtJmlStok: TcxCurrencyEdit
-        Left = 293
-        Top = 122
-        Style.BorderColor = clWindowFrame
-        Style.BorderStyle = ebsSingle
+        Left = 323
+        Top = 112
         Style.HotTrack = False
         TabOrder = 5
-        Width = 121
+        Width = 119
       end
       object cxcrncydtJmlPembelian: TcxCurrencyEdit
-        Left = 501
-        Top = 122
-        Style.BorderColor = clWindowFrame
-        Style.BorderStyle = ebsSingle
+        Left = 520
+        Top = 112
         Style.HotTrack = False
         TabOrder = 6
+        Width = 96
+      end
+      object cxcrncydtHargaBeli: TcxCurrencyEdit
+        Left = 93
+        Top = 139
+        Style.HotTrack = False
+        TabOrder = 7
         Width = 121
+      end
+      object cxcrncydtSubTotalPembelian: TcxCurrencyEdit
+        Left = 323
+        Top = 139
+        Style.HotTrack = False
+        TabOrder = 8
+        Width = 121
+      end
+      object btnInput: TcxButton
+        Left = 450
+        Top = 139
+        Width = 71
+        Height = 25
+        Caption = 'Input'
+        TabOrder = 9
+      end
+      object btnBaru: TcxButton
+        Left = 527
+        Top = 139
+        Width = 70
+        Height = 25
+        Caption = 'Baru'
+        TabOrder = 10
       end
       object dxlytgrpLayoutControl1Group_Root: TdxLayoutGroup
         AlignHorz = ahLeft
         AlignVert = avTop
         ButtonOptions.Buttons = <>
         Hidden = True
+        LayoutDirection = ldHorizontal
         ShowBorder = False
-        object dxlytgrpDataTransaksi: TdxLayoutGroup
-          CaptionOptions.Text = 'DATA TRANSAKSI PEMBELIAN'
+        object dxlytgrpdxlytcntrl1Group3: TdxLayoutGroup
+          CaptionOptions.Text = 'Hidden Group'
           ButtonOptions.Buttons = <>
-          LayoutDirection = ldHorizontal
-          object dxlytmNoPembelian: TdxLayoutItem
-            CaptionOptions.Text = 'No Pembelian'
-            Control = cxtxtdtNoPembelian
-            ControlOptions.ShowBorder = False
-          end
-          object dxlytmTglPembelian: TdxLayoutItem
-            CaptionOptions.Text = 'Tgl Pembelian'
-            Control = cxdtdtTglPembelian
-            ControlOptions.ShowBorder = False
-          end
-          object dxlytmTotalPembelian: TdxLayoutItem
-            CaptionOptions.Text = 'Total Pembelian'
-            Control = cxcrncydtTotalPembelian
-            ControlOptions.ShowBorder = False
-          end
-        end
-        object dxlytgrpDataObat: TdxLayoutGroup
-          CaptionOptions.Text = 'DATA OBAT'
-          ButtonOptions.Buttons = <>
-          object dxlytmNamaObat: TdxLayoutItem
-            CaptionOptions.Text = 'Nama Obat'
-            Control = cbbNamaObat
-            ControlOptions.ShowBorder = False
-          end
-          object dxlytgrpdxlytcntrl1Group1: TdxLayoutGroup
+          Hidden = True
+          ShowBorder = False
+          object dxlytgrpDataTransaksi: TdxLayoutGroup
+            CaptionOptions.Text = 'DATA TRANSAKSI PEMBELIAN'
             ButtonOptions.Buttons = <>
-            Hidden = True
             LayoutDirection = ldHorizontal
-            ShowBorder = False
-            object dxlytmSatuan: TdxLayoutItem
-              CaptionOptions.Text = 'Satuan'
-              Control = cxtxtdtSatuan
+            object dxlytmNoPembelian: TdxLayoutItem
+              CaptionOptions.Text = 'No Pembelian'
+              Control = cxtxtdtNoPembelian
               ControlOptions.ShowBorder = False
             end
-            object dxlytmJmlStok: TdxLayoutItem
-              CaptionOptions.Text = 'Jml Stok'
-              Control = cxcrncydtJmlStok
+            object dxlytmTglPembelian: TdxLayoutItem
+              CaptionOptions.Text = 'Tgl Pembelian'
+              Control = cxdtdtTglPembelian
               ControlOptions.ShowBorder = False
             end
-            object dxlytmJmlPembelian: TdxLayoutItem
-              CaptionOptions.Text = 'Jml Pembelian'
-              Control = cxcrncydtJmlPembelian
+            object dxlytmTotalPembelian: TdxLayoutItem
+              CaptionOptions.Text = 'Total Pembelian'
+              Control = cxcrncydtTotalPembelian
               ControlOptions.ShowBorder = False
+            end
+          end
+          object dxlytgrpDataObat: TdxLayoutGroup
+            CaptionOptions.Text = 'DATA OBAT'
+            ButtonOptions.Buttons = <>
+            object dxlytmNamaObat: TdxLayoutItem
+              CaptionOptions.Text = 'Nama Obat'
+              Control = cbbNamaObat
+              ControlOptions.ShowBorder = False
+            end
+            object dxlytgrpdxlytcntrl1Group1: TdxLayoutGroup
+              ButtonOptions.Buttons = <>
+              Hidden = True
+              LayoutDirection = ldHorizontal
+              ShowBorder = False
+              object dxlytmSatuan: TdxLayoutItem
+                CaptionOptions.Text = 'Satuan'
+                Control = cxtxtdtSatuan
+                ControlOptions.ShowBorder = False
+              end
+              object dxlytmJmlStok: TdxLayoutItem
+                CaptionOptions.Text = 'Jml Stok'
+                Control = cxcrncydtJmlStok
+                ControlOptions.ShowBorder = False
+              end
+              object dxlytmJmlPembelian: TdxLayoutItem
+                CaptionOptions.Text = 'Jml Pembelian'
+                Control = cxcrncydtJmlPembelian
+                ControlOptions.ShowBorder = False
+              end
+            end
+            object dxlytgrpdxlytcntrl1Group2: TdxLayoutGroup
+              ButtonOptions.Buttons = <>
+              Hidden = True
+              LayoutDirection = ldHorizontal
+              ShowBorder = False
+              object dxlytmHargaBeli: TdxLayoutItem
+                CaptionOptions.Text = 'Harga Beli'
+                Control = cxcrncydtHargaBeli
+                ControlOptions.ShowBorder = False
+              end
+              object dxlytmSubTotalPembelian: TdxLayoutItem
+                CaptionOptions.Text = 'Sub Total Pembelian'
+                Control = cxcrncydtSubTotalPembelian
+                ControlOptions.ShowBorder = False
+              end
+              object dxlytmInput: TdxLayoutItem
+                CaptionOptions.Text = 'cxButton1'
+                CaptionOptions.Visible = False
+                Control = btnInput
+                ControlOptions.ShowBorder = False
+              end
+              object dxlytmBaru: TdxLayoutItem
+                CaptionOptions.Text = 'cxButton1'
+                CaptionOptions.Visible = False
+                Control = btnBaru
+                ControlOptions.ShowBorder = False
+              end
             end
           end
         end
@@ -191,20 +237,54 @@ object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
     end
     object cxgrd1: TcxGrid
       Left = 1
-      Top = 180
+      Top = 187
       Width = 875
-      Height = 262
+      Height = 255
       Align = alClient
       TabOrder = 1
+      RootLevelStyles.Tab = cxstyl1
       object cxgrdbtblvwGrid1DBTableView1: TcxGridDBTableView
         NavigatorButtons.ConfirmDelete = False
+        DataController.DataSource = DataModule1.dsdetailpembelianpupukobattemp
         DataController.Summary.DefaultGroupSummaryItems = <>
         DataController.Summary.FooterSummaryItems = <>
         DataController.Summary.SummaryGroups = <>
+        object cxgrdbclmnGrid1DBTableView1noPembelian: TcxGridDBColumn
+          DataBinding.FieldName = 'noPembelian'
+        end
+        object cxgrdbclmnGrid1DBTableView1kodePupukObat: TcxGridDBColumn
+          DataBinding.FieldName = 'kodePupukObat'
+        end
+        object cxgrdbclmnGrid1DBTableView1namaPupukObat: TcxGridDBColumn
+          DataBinding.FieldName = 'namaPupukObat'
+        end
+        object cxgrdbclmnGrid1DBTableView1satuan: TcxGridDBColumn
+          DataBinding.FieldName = 'satuan'
+        end
+        object cxgrdbclmnGrid1DBTableView1jumlahPembelian: TcxGridDBColumn
+          DataBinding.FieldName = 'jumlahPembelian'
+        end
+        object cxgrdbclmnGrid1DBTableView1hargaBeli: TcxGridDBColumn
+          DataBinding.FieldName = 'hargaBeli'
+        end
+        object cxgrdbclmnGrid1DBTableView1subTotalPembelian: TcxGridDBColumn
+          DataBinding.FieldName = 'subTotalPembelian'
+        end
+        object cxgrdbclmnGrid1DBTableView1createDate: TcxGridDBColumn
+          DataBinding.FieldName = 'createDate'
+        end
+        object cxgrdbclmnGrid1DBTableView1createUser: TcxGridDBColumn
+          DataBinding.FieldName = 'createUser'
+        end
       end
       object cxgrdlvlGrid1Level1: TcxGridLevel
         GridView = cxgrdbtblvwGrid1DBTableView1
       end
+    end
+  end
+  object cxstylrpstry1: TcxStyleRepository
+    PixelsPerInch = 96
+    object cxstyl1: TcxStyle
     end
   end
 end
