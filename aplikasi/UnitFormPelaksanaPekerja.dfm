@@ -2,7 +2,7 @@ object FormPelaksanaPekerja: TFormPelaksanaPekerja
   Left = 192
   Top = 152
   Width = 979
-  Height = 563
+  Height = 606
   Caption = 'Pelaksana Pekerjaan'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -18,7 +18,7 @@ object FormPelaksanaPekerja: TFormPelaksanaPekerja
     Left = 0
     Top = 41
     Width = 963
-    Height = 443
+    Height = 486
     Align = alClient
     Color = clHighlightText
     TabOrder = 0
@@ -28,13 +28,13 @@ object FormPelaksanaPekerja: TFormPelaksanaPekerja
       Align = alClient
       Caption = 'DAFTAR DATA HASIL PANEN'
       TabOrder = 0
-      Height = 237
+      Height = 280
       Width = 961
       object cxgrd1: TcxGrid
         Left = 2
         Top = 18
         Width = 957
-        Height = 217
+        Height = 260
         Align = alClient
         TabOrder = 0
         object cxgrdbtblvwGrid1DBTableView1: TcxGridDBTableView
@@ -306,7 +306,7 @@ object FormPelaksanaPekerja: TFormPelaksanaPekerja
   end
   object pnlBawah: TPanel
     Left = 0
-    Top = 484
+    Top = 527
     Width = 963
     Height = 41
     Align = alBottom

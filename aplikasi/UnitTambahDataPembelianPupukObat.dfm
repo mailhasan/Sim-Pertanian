@@ -1,8 +1,8 @@
 object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
   Left = 353
   Top = 146
-  Width = 893
-  Height = 563
+  Width = 889
+  Height = 574
   Caption = 'Tambah Data Pembelian pupuk'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -12,12 +12,13 @@ object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
   Font.Style = []
   OldCreateOrder = False
   Position = poDesktopCenter
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object pnlAtas: TPanel
     Left = 0
     Top = 0
-    Width = 877
+    Width = 873
     Height = 41
     Align = alTop
     Caption = 'Form Data Pembelian Pupuk/Obat'
@@ -32,9 +33,9 @@ object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
   end
   object pnlBawah: TPanel
     Left = 0
-    Top = 484
-    Width = 877
-    Height = 41
+    Top = 458
+    Width = 873
+    Height = 78
     Align = alBottom
     Color = 15000804
     Font.Charset = ANSI_CHARSET
@@ -44,18 +45,52 @@ object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 1
+    object cxlbl1: TcxLabel
+      Left = 27
+      Top = 12
+      Caption = 'Total Pembayaran'
+    end
+    object cxlbl2: TcxLabel
+      Left = 30
+      Top = 47
+      Caption = 'Sisa Pembayaran'
+    end
+    object cxlbl3: TcxLabel
+      Left = 362
+      Top = 13
+      Caption = 'Status'
+    end
+    object cxcrncydtTotalPembayaran: TcxCurrencyEdit
+      Left = 188
+      Top = 9
+      TabOrder = 3
+      Width = 168
+    end
+    object cxcrncydtSisaPembayaran: TcxCurrencyEdit
+      Left = 189
+      Top = 45
+      TabOrder = 4
+      Width = 165
+    end
+    object cbbStatus: TcxComboBox
+      Left = 425
+      Top = 11
+      TabOrder = 5
+      Text = 'cbbStatus'
+      Width = 121
+    end
   end
   object pnlTengah: TPanel
     Left = 0
     Top = 41
-    Width = 877
-    Height = 443
+    Width = 873
+    Height = 417
     Align = alClient
     TabOrder = 2
     object dxlytcntrl1: TdxLayoutControl
       Left = 1
       Top = 1
-      Width = 875
+      Width = 871
       Height = 186
       Align = alTop
       TabOrder = 0
@@ -85,9 +120,17 @@ object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
       object cbbNamaObat: TcxLookupComboBox
         Left = 93
         Top = 85
-        Properties.ListColumns = <>
+        Properties.KeyFieldNames = 'kodePupukObat'
+        Properties.ListColumns = <
+          item
+            Caption = 'Nama Pupuk Obat-obataan'
+            FieldName = 'namaPupukObat'
+          end>
+        Properties.ListSource = DataModule1.dspupukobat
         Style.HotTrack = False
         TabOrder = 3
+        OnDblClick = cbbNamaObatDblClick
+        OnKeyPress = cbbNamaObatKeyPress
         Width = 482
       end
       object cxtxtdtSatuan: TcxTextEdit
@@ -101,6 +144,7 @@ object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
       object cxcrncydtJmlStok: TcxCurrencyEdit
         Left = 323
         Top = 112
+        Properties.AssignedValues.DisplayFormat = True
         Style.HotTrack = False
         TabOrder = 5
         Width = 119
@@ -108,6 +152,7 @@ object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
       object cxcrncydtJmlPembelian: TcxCurrencyEdit
         Left = 520
         Top = 112
+        Properties.AssignedValues.DisplayFormat = True
         Style.HotTrack = False
         TabOrder = 6
         Width = 96
@@ -115,6 +160,7 @@ object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
       object cxcrncydtHargaBeli: TcxCurrencyEdit
         Left = 93
         Top = 139
+        Properties.OnChange = cxcrncydtHargaBeliPropertiesChange
         Style.HotTrack = False
         TabOrder = 7
         Width = 121
@@ -133,6 +179,7 @@ object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
         Height = 25
         Caption = 'Input'
         TabOrder = 9
+        OnClick = btnInputClick
       end
       object btnBaru: TcxButton
         Left = 527
@@ -141,6 +188,7 @@ object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
         Height = 25
         Caption = 'Baru'
         TabOrder = 10
+        OnClick = btnBaruClick
       end
       object dxlytgrpLayoutControl1Group_Root: TdxLayoutGroup
         AlignHorz = ahLeft
@@ -238,43 +286,54 @@ object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
     object cxgrd1: TcxGrid
       Left = 1
       Top = 187
-      Width = 875
-      Height = 255
+      Width = 871
+      Height = 229
       Align = alClient
       TabOrder = 1
       RootLevelStyles.Tab = cxstyl1
       object cxgrdbtblvwGrid1DBTableView1: TcxGridDBTableView
         NavigatorButtons.ConfirmDelete = False
-        DataController.DataSource = DataModule1.dsdetailpembelianpupukobattemp
+        DataController.DataSource = DataModule1.dsdetailPembelianPupukObat
         DataController.Summary.DefaultGroupSummaryItems = <>
-        DataController.Summary.FooterSummaryItems = <>
+        DataController.Summary.FooterSummaryItems = <
+          item
+            Kind = skSum
+            Column = cxgrdbclmnGrid1DBTableView1subTotalPembelian
+          end>
         DataController.Summary.SummaryGroups = <>
-        object cxgrdbclmnGrid1DBTableView1noPembelian: TcxGridDBColumn
-          DataBinding.FieldName = 'noPembelian'
-        end
+        OptionsData.Deleting = False
+        OptionsData.DeletingConfirmation = False
+        OptionsData.Editing = False
+        OptionsData.Inserting = False
+        OptionsView.Footer = True
         object cxgrdbclmnGrid1DBTableView1kodePupukObat: TcxGridDBColumn
+          Caption = 'Kode '
           DataBinding.FieldName = 'kodePupukObat'
         end
         object cxgrdbclmnGrid1DBTableView1namaPupukObat: TcxGridDBColumn
+          Caption = 'Nama Pupuk Obat'
           DataBinding.FieldName = 'namaPupukObat'
+          Width = 274
         end
         object cxgrdbclmnGrid1DBTableView1satuan: TcxGridDBColumn
+          Caption = 'Satuan'
           DataBinding.FieldName = 'satuan'
+          Width = 159
         end
         object cxgrdbclmnGrid1DBTableView1jumlahPembelian: TcxGridDBColumn
+          Caption = 'Jumlah Pembelian'
           DataBinding.FieldName = 'jumlahPembelian'
+          Width = 91
         end
         object cxgrdbclmnGrid1DBTableView1hargaBeli: TcxGridDBColumn
+          Caption = 'Harga Beli'
           DataBinding.FieldName = 'hargaBeli'
+          Width = 55
         end
         object cxgrdbclmnGrid1DBTableView1subTotalPembelian: TcxGridDBColumn
+          Caption = 'Sub Total Pembelian'
           DataBinding.FieldName = 'subTotalPembelian'
-        end
-        object cxgrdbclmnGrid1DBTableView1createDate: TcxGridDBColumn
-          DataBinding.FieldName = 'createDate'
-        end
-        object cxgrdbclmnGrid1DBTableView1createUser: TcxGridDBColumn
-          DataBinding.FieldName = 'createUser'
+          Width = 104
         end
       end
       object cxgrdlvlGrid1Level1: TcxGridLevel

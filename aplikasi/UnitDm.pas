@@ -33,8 +33,6 @@ type
     dspembelianPupukObat: TDataSource;
     zqrydetailPembelianPupukObat: TZQuery;
     dsdetailPembelianPupukObat: TDataSource;
-    zqrydetailpembelianpupukobattemp: TZQuery;
-    dsdetailpembelianpupukobattemp: TDataSource;
     procedure conFarmAfterConnect(Sender: TObject);
   private
     { Private declarations }
@@ -63,7 +61,6 @@ begin
   zqrySatuan.Active := True;
   zqrypembelianPupukObat.Active := True;
   zqrydetailPembelianPupukObat.Active := True;
-  zqrydetailpembelianpupukobattemp.Active := True;
 end;
 
 end.

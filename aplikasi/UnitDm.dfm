@@ -184,18 +184,4 @@ object DataModule1: TDataModule1
     Left = 593
     Top = 142
   end
-  object zqrydetailpembelianpupukobattemp: TZQuery
-    Connection = conFarm
-    Active = True
-    SQL.Strings = (
-      'select * from detailpembelianpupukobattemp')
-    Params = <>
-    Left = 493
-    Top = 174
-  end
-  object dsdetailpembelianpupukobattemp: TDataSource
-    DataSet = zqrydetailpembelianpupukobattemp
-    Left = 602
-    Top = 214
-  end
 end
