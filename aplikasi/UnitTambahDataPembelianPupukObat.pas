@@ -27,8 +27,6 @@ type
     dxlytmNoPembelian: TdxLayoutItem;
     cxdtdtTglPembelian: TcxDateEdit;
     dxlytmTglPembelian: TdxLayoutItem;
-    cxcrncydtTotalPembelian: TcxCurrencyEdit;
-    dxlytmTotalPembelian: TdxLayoutItem;
     cbbNamaObat: TcxLookupComboBox;
     dxlytmNamaObat: TdxLayoutItem;
     cxtxtdtSatuan: TcxTextEdit;
@@ -58,13 +56,16 @@ type
     cxgrdbclmnGrid1DBTableView1subTotalPembelian: TcxGridDBColumn;
     cxstylrpstry1: TcxStyleRepository;
     cxstyl1: TcxStyle;
-    dxlytgrpdxlytcntrl1Group3: TdxLayoutGroup;
     cxlbl1: TcxLabel;
     cxlbl2: TcxLabel;
     cxlbl3: TcxLabel;
     cxcrncydtTotalPembayaran: TcxCurrencyEdit;
     cxcrncydtSisaPembayaran: TcxCurrencyEdit;
     cbbStatus: TcxComboBox;
+    dxlytgrpdxlytcntrl1Group3: TdxLayoutGroup;
+    cxcrncydtTotalPembelian: TcxCurrencyEdit;
+    dxlytmTotalPembelian: TdxLayoutItem;
+    dxlytgrpdxlytcntrl1Group4: TdxLayoutGroup;
     procedure FormShow(Sender: TObject);
     procedure btnBaruClick(Sender: TObject);
     procedure cbbNamaObatKeyPress(Sender: TObject; var Key: Char);
@@ -88,6 +89,7 @@ implementation
 {$R *.dfm}
 uses UnitUtama,UnitDm, ZDataset, ZAbstractRODataset;
 
+/// selesai input obat
 procedure TFormTambahDataPembelianPupukObat.SelesaiInputData;
 begin
  cbbNamaObat.Text := '';
@@ -98,14 +100,17 @@ begin
  cxcrncydtSubTotalPembelian.Value := 0;
 end;
 
+/// tampil baru
 procedure TFormTambahDataPembelianPupukObat.baru;
 begin
   cxtxtdtNoPembelian.Text := FormatDateTime('yyyy-MM-dd hh:mm:ss',Now);
   cxdtdtTglPembelian.Date := Now;
   cxcrncydtTotalPembelian.Value := 0;
+  cbbStatus.Text := '';
   SelesaiInputData;
 end;
 
+/// tampil data master obat
 procedure TFormTambahDataPembelianPupukObat.tampilDataMasterObat;
 begin
   with DataModule1.zqrypupukobat do
@@ -122,6 +127,7 @@ begin
  baru;
 end;
 
+/// baru input ulang barang
 procedure TFormTambahDataPembelianPupukObat.btnBaruClick(Sender: TObject);
 begin
  SelesaiInputData;
@@ -171,6 +177,8 @@ end;
 procedure TFormTambahDataPembelianPupukObat.btnInputClick(Sender: TObject);
 var
   tgl,user:String;
+  AIndex, AGroupIndex: integer;  
+  AValue: variant;
 begin
 if (cbbNamaObat.Text='') or (cxcrncydtJmlPembelian.Value=0) or (cxcrncydtHargaBeli.Value=0) then
     MessageDlg('Data Tanda * Wajib Di Isi....!',mtWarning,[mbOK],0)
@@ -226,6 +234,11 @@ if (cbbNamaObat.Text='') or (cxcrncydtJmlPembelian.Value=0) or (cxcrncydtHargaBe
                 Open;
               end;
 
+              /// ambil data value footer
+              AIndex := cxgrdbtblvwGrid1DBTableView1.DataController.Summary.FooterSummaryItems.IndexOfItemLink(cxgrdbclmnGrid1DBTableView1subTotalPembelian);
+              AValue :=  cxgrdbtblvwGrid1DBTableView1.DataController.Summary.FooterSummaryValues[AIndex];
+              cxcrncydtTotalPembelian.Text := VarToStr(AValue);
+
               /// update pada tabel pembelian pupuk
               with DataModule1.zqrypembelianPupukObat do
               begin
@@ -246,6 +259,12 @@ if (cbbNamaObat.Text='') or (cxcrncydtJmlPembelian.Value=0) or (cxcrncydtHargaBe
           else
             /// insert di tabel pembelian pupuk
             begin
+
+              /// ambil data value footer
+              AIndex := cxgrdbtblvwGrid1DBTableView1.DataController.Summary.FooterSummaryItems.IndexOfItemLink(cxgrdbclmnGrid1DBTableView1subTotalPembelian);
+              AValue :=  cxgrdbtblvwGrid1DBTableView1.DataController.Summary.FooterSummaryValues[AIndex];
+              cxcrncydtTotalPembelian.Text := VarToStr(AValue);
+              
               /// insert pada tabel pembelian pupuk
               with DataModule1.zqrypembelianPupukObat do
               begin

@@ -2,7 +2,7 @@ object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
   Left = 353
   Top = 146
   Width = 889
-  Height = 574
+  Height = 609
   Caption = 'Tambah Data Pembelian pupuk'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -33,7 +33,7 @@ object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
   end
   object pnlBawah: TPanel
     Left = 0
-    Top = 458
+    Top = 493
     Width = 873
     Height = 78
     Align = alBottom
@@ -75,16 +75,19 @@ object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
     object cbbStatus: TcxComboBox
       Left = 425
       Top = 11
+      Properties.Items.Strings = (
+        'LUNAS'
+        'BELUM LUNAS')
       TabOrder = 5
       Text = 'cbbStatus'
-      Width = 121
+      Width = 144
     end
   end
   object pnlTengah: TPanel
     Left = 0
     Top = 41
     Width = 873
-    Height = 417
+    Height = 452
     Align = alClient
     TabOrder = 2
     object dxlytcntrl1: TdxLayoutControl
@@ -109,13 +112,6 @@ object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
         Style.HotTrack = False
         TabOrder = 1
         Width = 90
-      end
-      object cxcrncydtTotalPembelian: TcxCurrencyEdit
-        Left = 500
-        Top = 28
-        Style.HotTrack = False
-        TabOrder = 2
-        Width = 121
       end
       object cbbNamaObat: TcxLookupComboBox
         Left = 93
@@ -190,6 +186,20 @@ object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
         TabOrder = 10
         OnClick = btnBaruClick
       end
+      object cxcrncydtTotalPembelian: TcxCurrencyEdit
+        Left = 460
+        Top = 10
+        ParentFont = False
+        Style.Font.Charset = DEFAULT_CHARSET
+        Style.Font.Color = clWindowText
+        Style.Font.Height = -32
+        Style.Font.Name = 'MS Sans Serif'
+        Style.Font.Style = []
+        Style.HotTrack = False
+        Style.IsFontAssigned = True
+        TabOrder = 2
+        Width = 165
+      end
       object dxlytgrpLayoutControl1Group_Root: TdxLayoutGroup
         AlignHorz = ahLeft
         AlignVert = avTop
@@ -202,22 +212,28 @@ object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
           ButtonOptions.Buttons = <>
           Hidden = True
           ShowBorder = False
-          object dxlytgrpDataTransaksi: TdxLayoutGroup
-            CaptionOptions.Text = 'DATA TRANSAKSI PEMBELIAN'
+          object dxlytgrpdxlytcntrl1Group4: TdxLayoutGroup
             ButtonOptions.Buttons = <>
+            Hidden = True
             LayoutDirection = ldHorizontal
-            object dxlytmNoPembelian: TdxLayoutItem
-              CaptionOptions.Text = 'No Pembelian'
-              Control = cxtxtdtNoPembelian
-              ControlOptions.ShowBorder = False
-            end
-            object dxlytmTglPembelian: TdxLayoutItem
-              CaptionOptions.Text = 'Tgl Pembelian'
-              Control = cxdtdtTglPembelian
-              ControlOptions.ShowBorder = False
+            ShowBorder = False
+            object dxlytgrpDataTransaksi: TdxLayoutGroup
+              CaptionOptions.Text = 'DATA TRANSAKSI PEMBELIAN'
+              ButtonOptions.Buttons = <>
+              LayoutDirection = ldHorizontal
+              object dxlytmNoPembelian: TdxLayoutItem
+                CaptionOptions.Text = 'No Pembelian'
+                Control = cxtxtdtNoPembelian
+                ControlOptions.ShowBorder = False
+              end
+              object dxlytmTglPembelian: TdxLayoutItem
+                CaptionOptions.Text = 'Tgl Pembelian'
+                Control = cxdtdtTglPembelian
+                ControlOptions.ShowBorder = False
+              end
             end
             object dxlytmTotalPembelian: TdxLayoutItem
-              CaptionOptions.Text = 'Total Pembelian'
+              CaptionOptions.Text = 'Total'
               Control = cxcrncydtTotalPembelian
               ControlOptions.ShowBorder = False
             end
@@ -287,7 +303,7 @@ object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
       Left = 1
       Top = 187
       Width = 871
-      Height = 229
+      Height = 264
       Align = alClient
       TabOrder = 1
       RootLevelStyles.Tab = cxstyl1
