@@ -63,11 +63,12 @@ object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
     object cxcrncydtTotalPembayaran: TcxCurrencyEdit
       Left = 188
       Top = 9
+      Properties.OnEditValueChanged = cxcrncydtTotalPembayaranPropertiesEditValueChanged
       TabOrder = 3
       Width = 168
     end
     object cxcrncydtSisaPembayaran: TcxCurrencyEdit
-      Left = 189
+      Left = 190
       Top = 45
       TabOrder = 4
       Width = 165
@@ -80,7 +81,42 @@ object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
         'BELUM LUNAS')
       TabOrder = 5
       Text = 'cbbStatus'
-      Width = 144
+      Width = 217
+    end
+    object btnSimpan: TcxButton
+      Left = 365
+      Top = 48
+      Width = 76
+      Height = 25
+      Caption = 'Simpan'
+      TabOrder = 6
+      OnClick = btnSimpanClick
+    end
+    object btnPrint: TcxButton
+      Left = 514
+      Top = 48
+      Width = 69
+      Height = 25
+      Caption = 'Print'
+      TabOrder = 7
+    end
+    object btnBaruPembelian: TcxButton
+      Left = 443
+      Top = 48
+      Width = 69
+      Height = 25
+      Caption = 'Baru'
+      TabOrder = 8
+      OnClick = btnBaruPembelianClick
+    end
+    object btnKeluar: TcxButton
+      Left = 585
+      Top = 48
+      Width = 72
+      Height = 25
+      Caption = 'Keluar'
+      TabOrder = 9
+      OnClick = btnKeluarClick
     end
   end
   object pnlTengah: TPanel
@@ -198,7 +234,7 @@ object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
         Style.HotTrack = False
         Style.IsFontAssigned = True
         TabOrder = 2
-        Width = 165
+        Width = 201
       end
       object dxlytgrpLayoutControl1Group_Root: TdxLayoutGroup
         AlignHorz = ahLeft
@@ -308,6 +344,7 @@ object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
       TabOrder = 1
       RootLevelStyles.Tab = cxstyl1
       object cxgrdbtblvwGrid1DBTableView1: TcxGridDBTableView
+        PopupMenu = pm1
         NavigatorButtons.ConfirmDelete = False
         DataController.DataSource = DataModule1.dsdetailPembelianPupukObat
         DataController.Summary.DefaultGroupSummaryItems = <>
@@ -360,6 +397,14 @@ object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
   object cxstylrpstry1: TcxStyleRepository
     PixelsPerInch = 96
     object cxstyl1: TcxStyle
+    end
+  end
+  object pm1: TPopupMenu
+    Left = 457
+    Top = 337
+    object Hapus1: TMenuItem
+      Caption = 'Hapus'
+      OnClick = Hapus1Click
     end
   end
 end

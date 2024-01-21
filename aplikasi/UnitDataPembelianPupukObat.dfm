@@ -13,6 +13,7 @@ object FormDaftarDataPembelianPupukObat: TFormDaftarDataPembelianPupukObat
   OldCreateOrder = False
   Position = poDesktopCenter
   WindowState = wsMaximized
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object pnlAtas: TPanel
@@ -73,9 +74,11 @@ object FormDaftarDataPembelianPupukObat: TFormDaftarDataPembelianPupukObat
       end
       object dxnvbrtmUbah: TdxNavBarItem
         Caption = 'UBAH'
+        OnClick = dxnvbrtmUbahClick
       end
       object dxnvbrtmHapus: TdxNavBarItem
         Caption = 'HAPUS'
+        OnClick = dxnvbrtmHapusClick
       end
       object dxnvbrtmPembayaran: TdxNavBarItem
         Caption = 'PEMBAYARAN'
@@ -98,6 +101,41 @@ object FormDaftarDataPembelianPupukObat: TFormDaftarDataPembelianPupukObat
       Align = alBottom
       Color = 15000804
       TabOrder = 0
+      object cxlbl1: TcxLabel
+        Left = 8
+        Top = 14
+        Caption = 'Tanggal Mulai'
+      end
+      object cxdtdtTglMulai: TcxDateEdit
+        Left = 86
+        Top = 12
+        Properties.SaveTime = False
+        Properties.ShowTime = False
+        TabOrder = 1
+        Width = 121
+      end
+      object cxlbl2: TcxLabel
+        Left = 213
+        Top = 15
+        Caption = 'SD'
+      end
+      object cxdtdtTglSelesai: TcxDateEdit
+        Left = 232
+        Top = 13
+        Properties.SaveTime = False
+        Properties.ShowTime = False
+        TabOrder = 3
+        Width = 121
+      end
+      object btnTampil: TcxButton
+        Left = 360
+        Top = 12
+        Width = 69
+        Height = 25
+        Caption = 'Tampil'
+        TabOrder = 4
+        OnClick = btnTampilClick
+      end
     end
     object cxgrd1: TcxGrid
       Left = 1
@@ -112,6 +150,9 @@ object FormDaftarDataPembelianPupukObat: TFormDaftarDataPembelianPupukObat
         DataController.Summary.DefaultGroupSummaryItems = <>
         DataController.Summary.FooterSummaryItems = <>
         DataController.Summary.SummaryGroups = <>
+        OptionsData.Deleting = False
+        OptionsData.Editing = False
+        OptionsData.Inserting = False
         object cxgrdbclmnGrid1DBTableView1noPembelian: TcxGridDBColumn
           Caption = 'No Pembelian'
           DataBinding.FieldName = 'noPembelian'

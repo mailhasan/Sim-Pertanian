@@ -66,16 +66,29 @@ type
     cxcrncydtTotalPembelian: TcxCurrencyEdit;
     dxlytmTotalPembelian: TdxLayoutItem;
     dxlytgrpdxlytcntrl1Group4: TdxLayoutGroup;
+    btnSimpan: TcxButton;
+    btnPrint: TcxButton;
+    btnBaruPembelian: TcxButton;
+    pm1: TPopupMenu;
+    Hapus1: TMenuItem;
+    btnKeluar: TcxButton;
     procedure FormShow(Sender: TObject);
     procedure btnBaruClick(Sender: TObject);
     procedure cbbNamaObatKeyPress(Sender: TObject; var Key: Char);
     procedure cbbNamaObatDblClick(Sender: TObject);
     procedure btnInputClick(Sender: TObject);
     procedure cxcrncydtHargaBeliPropertiesChange(Sender: TObject);
+    procedure cxcrncydtTotalPembayaranPropertiesEditValueChanged(
+      Sender: TObject);
+    procedure btnSimpanClick(Sender: TObject);
+    procedure btnBaruPembelianClick(Sender: TObject);
+    procedure btnKeluarClick(Sender: TObject);
+    procedure Hapus1Click(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
+    procedure tampilDetailPembelian;
     procedure SelesaiInputData;
     procedure baru;
     procedure tampilDataMasterObat;
@@ -88,6 +101,18 @@ implementation
 
 {$R *.dfm}
 uses UnitUtama,UnitDm, ZDataset, ZAbstractRODataset;
+
+procedure TFormTambahDataPembelianPupukObat.tampilDetailPembelian;
+begin
+  /// tampil data berdasarkan no pembelian
+  with DataModule1.zqrydetailPembelianPupukObat do
+  begin
+   Close;
+   SQL.Clear;
+   SQL.Text := 'select * from detailPembelianPupukObat where noPembelian="'+cxtxtdtNoPembelian.Text+'"';
+   Open;
+  end;
+end;
 
 /// selesai input obat
 procedure TFormTambahDataPembelianPupukObat.SelesaiInputData;
@@ -107,7 +132,10 @@ begin
   cxdtdtTglPembelian.Date := Now;
   cxcrncydtTotalPembelian.Value := 0;
   cbbStatus.Text := '';
+  /// panggil procedure selesai input data
   SelesaiInputData;
+  /// panggil procedure tampil data
+  tampilDetailPembelian;
 end;
 
 /// tampil data master obat
@@ -124,7 +152,7 @@ end;
 
 procedure TFormTambahDataPembelianPupukObat.FormShow(Sender: TObject);
 begin
- baru;
+ 
 end;
 
 /// baru input ulang barang
@@ -177,7 +205,7 @@ end;
 procedure TFormTambahDataPembelianPupukObat.btnInputClick(Sender: TObject);
 var
   tgl,user:String;
-  AIndex, AGroupIndex: integer;  
+  AIndex, AGroupIndex: integer;
   AValue: variant;
 begin
 if (cbbNamaObat.Text='') or (cxcrncydtJmlPembelian.Value=0) or (cxcrncydtHargaBeli.Value=0) then
@@ -259,11 +287,6 @@ if (cbbNamaObat.Text='') or (cxcrncydtJmlPembelian.Value=0) or (cxcrncydtHargaBe
           else
             /// insert di tabel pembelian pupuk
             begin
-
-              /// ambil data value footer
-              AIndex := cxgrdbtblvwGrid1DBTableView1.DataController.Summary.FooterSummaryItems.IndexOfItemLink(cxgrdbclmnGrid1DBTableView1subTotalPembelian);
-              AValue :=  cxgrdbtblvwGrid1DBTableView1.DataController.Summary.FooterSummaryValues[AIndex];
-              cxcrncydtTotalPembelian.Text := VarToStr(AValue);
               
               /// insert pada tabel pembelian pupuk
               with DataModule1.zqrypembelianPupukObat do
@@ -326,6 +349,11 @@ if (cbbNamaObat.Text='') or (cxcrncydtJmlPembelian.Value=0) or (cxcrncydtHargaBe
                 Open;
               end;
 
+               /// ambil data value footer
+              AIndex := cxgrdbtblvwGrid1DBTableView1.DataController.Summary.FooterSummaryItems.IndexOfItemLink(cxgrdbclmnGrid1DBTableView1subTotalPembelian);
+              AValue :=  cxgrdbtblvwGrid1DBTableView1.DataController.Summary.FooterSummaryValues[AIndex];
+              cxcrncydtTotalPembelian.Text := VarToStr(AValue);
+
             end;
     end;
 end;
@@ -334,6 +362,144 @@ procedure TFormTambahDataPembelianPupukObat.cxcrncydtHargaBeliPropertiesChange(
   Sender: TObject);
 begin
 cxcrncydtSubTotalPembelian.Value := cxcrncydtHargaBeli.Value * cxcrncydtJmlPembelian.Value;
+end;
+
+procedure TFormTambahDataPembelianPupukObat.cxcrncydtTotalPembayaranPropertiesEditValueChanged(
+  Sender: TObject);
+begin
+ if (cxcrncydtTotalPembayaran.Value) >= (cxcrncydtTotalPembelian.Value) then
+  begin
+   cbbStatus.ItemIndex := 0;
+   cxcrncydtSisaPembayaran.Value := cxcrncydtTotalPembelian.Value -  cxcrncydtTotalPembayaran.Value;
+  end
+ else
+  begin
+   cbbStatus.ItemIndex := 1;
+   cxcrncydtSisaPembayaran.Value := cxcrncydtTotalPembelian.Value -  cxcrncydtTotalPembayaran.Value;
+  end;
+
+end;
+
+procedure TFormTambahDataPembelianPupukObat.btnSimpanClick(
+  Sender: TObject);
+begin
+  /// simpan pembelian pupuk
+  with DataModule1.zqrypembelianPupukObat do
+  begin
+  Close;
+  SQL.Clear;
+  SQL.Text := 'update pembelianpupukobat set totalPembelian=:totalPembelian,sisaPembayaran=:sisaPembayaran,status=:status where noPembelian=:noPembelian';
+  Params.ParamByName('noPembelian').Value := cxtxtdtNoPembelian.Text;
+  Params.ParamByName('totalPembelian').Value := cxcrncydtTotalPembelian.Value;
+  Params.ParamByName('sisaPembayaran').Value := cxcrncydtSisaPembayaran.Value;
+  Params.ParamByName('status').Value := cbbStatus.Text;
+  ExecSQL;
+  SQL.Text := 'select * from pembelianpupukobat where noPembelian="'+cxtxtdtNoPembelian.Text+'"';
+  Open;
+  end;
+  MessageDlg('Transaksi Pembelian Pupuk Berhasil Di Simpan...!',mtInformation,[mbOK],0);
+end;
+
+procedure TFormTambahDataPembelianPupukObat.btnBaruPembelianClick(
+  Sender: TObject);
+begin
+ /// panggil procedure baru
+ baru;
+end;
+
+procedure TFormTambahDataPembelianPupukObat.btnKeluarClick(
+  Sender: TObject);
+begin
+ Close;
+end;
+
+procedure TFormTambahDataPembelianPupukObat.Hapus1Click(Sender: TObject);
+var
+  Kode,kodePupuk:String;
+  stokpupuk,stokPupukDetail,kurangStok:Integer;
+  AIndex, AGroupIndex: integer;
+  AValue: variant;
+begin
+if DataModule1.zqrydetailPembelianPupukObat.RecordCount<=0 then
+  MessageDlg('Data Tidak Di Temukan...!',mtWarning,[mbOK],0) else
+  begin
+  if MessageDlg('Anda Ingin Menghapus Data "'+DataModule1.zqrydetailPembelianPupukObat['namaPupukObat']+'" ?', mtConfirmation,[mbyes,mbno],0)=mryes then
+  begin
+    Kode := DataModule1.zqrydetailPembelianPupukObat['id'];
+    kodePupuk := DataModule1.zqrydetailPembelianPupukObat['kodePupukObat'];
+
+    /// ambil data stok utama
+    with DataModule1.zqrypupukobat do
+    begin
+     Close;
+     SQL.Clear;
+     SQL.Text := 'select stok from pupukobat where kodePupukObat="'+kodePupuk+'"';
+     Open;
+    end;
+
+    stokpupuk := DataModule1.zqrypupukobat.Fieldbyname('stok').AsInteger;
+
+    /// ambil data dari detail
+    with DataModule1.zqrydetailPembelianPupukObat do
+    begin
+     Close;
+     SQL.Clear;
+     SQL.Text := 'select jumlahPembelian from detailpembelianpupukobat where id="'+Kode+'"  ';
+     Open;
+    end;
+
+    stokPupukDetail := DataModule1.zqrydetailPembelianPupukObat.Fieldbyname('jumlahPembelian').AsInteger;
+
+    kurangStok := stokpupuk -  stokPupukDetail;
+
+    /// update stok di data master pupuk obat
+    with DataModule1.zqrypupukobat do
+    begin
+      Close;
+      SQL.Clear;
+      SQL.Text := 'update pupukobat set stok=:stok where kodePupukObat=:kodePupukObat';
+      Params.ParamByName('kodePupukObat').Text := kodePupuk;
+      Params.ParamByName('stok').Value := kurangStok;
+      ExecSQL;
+      SQL.Text := 'select * from pupukobat';
+      Open;
+    end;
+
+    ///  hapus pada detail
+
+    with DataModule1.zqrydetailPembelianPupukObat do
+    begin
+    Close;
+    SQL.Text:='delete from detailpembelianpupukobat where id="'+Kode+'" ';
+    ExecSQL;
+    SQL.Text:='select * from detailpembelianpupukobat where noPembelian="'+cxtxtdtNoPembelian.Text+'"';
+    Open;
+    end;
+
+    /// ambil data value footer
+    AIndex := cxgrdbtblvwGrid1DBTableView1.DataController.Summary.FooterSummaryItems.IndexOfItemLink(cxgrdbclmnGrid1DBTableView1subTotalPembelian);
+    AValue :=  cxgrdbtblvwGrid1DBTableView1.DataController.Summary.FooterSummaryValues[AIndex];
+    cxcrncydtTotalPembelian.Text := VarToStr(AValue);
+
+    /// update pada tabel pembelian pupuk
+    with DataModule1.zqrypembelianPupukObat do
+    begin
+      Close;
+      SQL.Clear;
+      SQL.Text := 'update pembelianpupukobat set tanggalPembelian=:tanggalPembelian,totalPembelian=:totalPembelian,sisaPembayaran=:sisaPembayaran,status=:status where noPembelian=:noPembelian';
+      Params.ParamByName('noPembelian').Value := cxtxtdtNoPembelian.Text;
+      Params.ParamByName('tanggalPembelian').Value := FormatDateTime('yyyy-MM-dd',cxdtdtTglPembelian.Date);
+      Params.ParamByName('totalPembelian').Value := cxcrncydtTotalPembelian.Value;
+      Params.ParamByName('sisaPembayaran').Value := cxcrncydtSisaPembayaran.Value;
+      Params.ParamByName('status').Value := cbbStatus.Text;
+      ExecSQL;
+      SQL.Text := 'select * from pembelianpupukobat where noPembelian="'+cxtxtdtNoPembelian.Text+'"';
+      Open;
+    end;
+    
+  end else
+  abort;
+end;
 end;
 
 end.
