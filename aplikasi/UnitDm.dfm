@@ -1,7 +1,7 @@
 object DataModule1: TDataModule1
   OldCreateOrder = False
-  Left = 426
-  Top = 206
+  Left = 409
+  Top = 153
   Height = 487
   Width = 776
   object conFarm: TZConnection
@@ -74,7 +74,6 @@ object DataModule1: TDataModule1
   end
   object zqryhasilPanen: TZQuery
     Connection = conFarm
-    Active = True
     SQL.Strings = (
       'select * from hasilpanen')
     Params = <>
@@ -88,7 +87,6 @@ object DataModule1: TDataModule1
   end
   object zqrypenggunaanalat: TZQuery
     Connection = conFarm
-    Active = True
     SQL.Strings = (
       'select * from penggunaanalat')
     Params = <>
@@ -102,7 +100,6 @@ object DataModule1: TDataModule1
   end
   object zqryPegawai: TZQuery
     Connection = conFarm
-    Active = True
     SQL.Strings = (
       'select * from pegawai')
     Params = <>
@@ -116,7 +113,6 @@ object DataModule1: TDataModule1
   end
   object zqrypelaksanapekerja: TZQuery
     Connection = conFarm
-    Active = True
     SQL.Strings = (
       'select * from pelaksanapekerja')
     Params = <>
@@ -130,7 +126,6 @@ object DataModule1: TDataModule1
   end
   object zqrypupukobat: TZQuery
     Connection = conFarm
-    Active = True
     SQL.Strings = (
       'select * from pupukobat')
     Params = <>
@@ -144,7 +139,6 @@ object DataModule1: TDataModule1
   end
   object zqrySatuan: TZQuery
     Connection = conFarm
-    Active = True
     SQL.Strings = (
       'select * from satuan')
     Params = <>
@@ -158,7 +152,6 @@ object DataModule1: TDataModule1
   end
   object zqrypembelianPupukObat: TZQuery
     Connection = conFarm
-    Active = True
     SQL.Strings = (
       'select * from pembelianPupukObat')
     Params = <>
@@ -172,7 +165,6 @@ object DataModule1: TDataModule1
   end
   object zqrydetailPembelianPupukObat: TZQuery
     Connection = conFarm
-    Active = True
     SQL.Strings = (
       'select * from detailPembelianPupukObat')
     Params = <>
@@ -183,5 +175,37 @@ object DataModule1: TDataModule1
     DataSet = zqrydetailPembelianPupukObat
     Left = 593
     Top = 142
+  end
+  object zqryTampilPupukObat: TZQuery
+    Connection = conFarm
+    SQL.Strings = (
+      'SELECT id,noPembelian,kodePupukObat,namaPupukObat,satuan,'
+      
+        'jumlahPembelian,jumlahPenggunaan,hargaBeli FROM detailpembelianp' +
+        'upukobat '
+      
+        'WHERE (jumlahPenggunaan<jumlahPembelian) OR jumlahPenggunaan is ' +
+        'NULL')
+    Params = <>
+    Left = 480
+    Top = 184
+  end
+  object dsTampilPupukObat: TDataSource
+    DataSet = zqryTampilPupukObat
+    Left = 568
+    Top = 208
+  end
+  object zqrypenggunaanpupukobat: TZQuery
+    Connection = conFarm
+    SQL.Strings = (
+      'select * from penggunaanpupukobat')
+    Params = <>
+    Left = 488
+    Top = 264
+  end
+  object dspenggunaanpupukobat: TDataSource
+    DataSet = zqrypenggunaanpupukobat
+    Left = 576
+    Top = 288
   end
 end

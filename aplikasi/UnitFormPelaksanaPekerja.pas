@@ -20,7 +20,7 @@ uses
   dxLayoutControl, cxMaskEdit, cxCalendar, cxTextEdit, cxLabel, StdCtrls,
   cxButtons, cxGridLevel, cxGridCustomTableView, cxGridTableView,
   cxGridDBTableView, cxClasses, cxGridCustomView, cxGrid, cxGroupBox,
-  ExtCtrls, cxCurrencyEdit, cxMemo;
+  ExtCtrls, cxCurrencyEdit, cxMemo, dxLayoutLookAndFeels;
 
 type
   TFormPelaksanaPekerja = class(TForm)
@@ -74,6 +74,8 @@ type
     cxgrdbclmnGrid1DBTableView1createUser: TcxGridDBColumn;
     cxgrdbclmnGrid1DBTableView1modifDate: TcxGridDBColumn;
     cxgrdbclmnGrid1DBTableView1modifUser: TcxGridDBColumn;
+    dxlytlkndflst1: TdxLayoutLookAndFeelList;
+    dxlytwblkndfl1: TdxLayoutWebLookAndFeel;
     procedure cbbNamaKeyPress(Sender: TObject; var Key: Char);
     procedure ambah1Click(Sender: TObject);
     procedure btnBaruClick(Sender: TObject);

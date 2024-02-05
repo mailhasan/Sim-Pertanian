@@ -280,6 +280,7 @@ object FormDaftarDataKegiatanKelolaLahan: TFormDaftarDataKegiatanKelolaLahan
       end
       object dxnvbrtmObatobatan: TdxNavBarItem
         Caption = 'PUPUK, OBAT, DLL'
+        OnClick = dxnvbrtmObatobatanClick
       end
     end
   end

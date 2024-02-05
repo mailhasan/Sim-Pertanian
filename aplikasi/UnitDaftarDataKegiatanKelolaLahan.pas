@@ -74,6 +74,7 @@ type
     procedure dxnvbrtmHasilPanenClick(Sender: TObject);
     procedure dxnvbrtmPengeluaranAlatClick(Sender: TObject);
     procedure dxnvbrtmPembayaranPekerjaClick(Sender: TObject);
+    procedure dxnvbrtmObatobatanClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -91,7 +92,7 @@ implementation
 
 {$R *.dfm}
 uses UnitDm, ZDataset,UnitFormTambahKegiatanKelolaHarian,UnitHapusKegiatanKelolaLahan,UnitKelolaLahan,
-     UnitHasilPanen,UnitPenggunaanAlat,UnitFormPelaksanaPekerja;
+     UnitHasilPanen,UnitPenggunaanAlat,UnitFormPelaksanaPekerja,UnitPenggunaanPupukObat;
 
 /// procedure baru
 procedure TFormDaftarDataKegiatanKelolaLahan.baru;
@@ -251,6 +252,12 @@ if DataModule1.zqrykegiatanKelolahLahan.RecordCount >= 1 then
   end
   else
   MessageDlg('Data Tidak Di Temukan...!',mtWarning,[mbOK],0);
+end;
+
+procedure TFormDaftarDataKegiatanKelolaLahan.dxnvbrtmObatobatanClick(
+  Sender: TObject);
+begin
+  FormPenggunaanPupukObat.ShowModal;
 end;
 
 end.

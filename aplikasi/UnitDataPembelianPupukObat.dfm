@@ -82,6 +82,7 @@ object FormDaftarDataPembelianPupukObat: TFormDaftarDataPembelianPupukObat
       end
       object dxnvbrtmPembayaran: TdxNavBarItem
         Caption = 'PEMBAYARAN'
+        OnClick = dxnvbrtmPembayaranClick
       end
     end
   end

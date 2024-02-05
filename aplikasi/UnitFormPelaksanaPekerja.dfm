@@ -1,6 +1,6 @@
 object FormPelaksanaPekerja: TFormPelaksanaPekerja
-  Left = 192
-  Top = 152
+  Left = 204
+  Top = 113
   Width = 979
   Height = 606
   Caption = 'Pelaksana Pekerjaan'
@@ -172,25 +172,32 @@ object FormPelaksanaPekerja: TFormPelaksanaPekerja
         Align = alClient
         TabOrder = 1
         TabStop = False
+        LayoutLookAndFeel = dxlytwblkndfl1
         object cxtxtdtNoKegiatan: TcxTextEdit
-          Left = 74
-          Top = 10
+          Left = 75
+          Top = 11
           Enabled = False
+          Style.BorderColor = clWindowFrame
+          Style.BorderStyle = ebsSingle
           Style.HotTrack = False
           TabOrder = 0
           Text = 'cxtxtdtNoKegiatan'
           Width = 121
         end
         object cxdtdtTglPekerjaan: TcxDateEdit
-          Left = 272
-          Top = 10
+          Left = 273
+          Top = 11
+          Style.BorderColor = clWindowFrame
+          Style.BorderStyle = ebsSingle
           Style.HotTrack = False
+          Style.ButtonStyle = btsHotFlat
+          Style.PopupBorderStyle = epbsSingle
           TabOrder = 1
           Width = 121
         end
         object cbbNama: TcxLookupComboBox
-          Left = 74
-          Top = 37
+          Left = 75
+          Top = 38
           PopupMenu = pm1
           Properties.KeyFieldNames = 'nama'
           Properties.ListColumns = <
@@ -198,40 +205,52 @@ object FormPelaksanaPekerja: TFormPelaksanaPekerja
               FieldName = 'nama'
             end>
           Properties.ListSource = DataModule1.dspegawai
+          Style.BorderColor = clWindowFrame
+          Style.BorderStyle = ebsSingle
           Style.HotTrack = False
+          Style.ButtonStyle = btsHotFlat
+          Style.PopupBorderStyle = epbsSingle
           TabOrder = 2
           OnKeyPress = cbbNamaKeyPress
           Width = 145
         end
         object cxlbl3: TcxLabel
-          Left = 10
-          Top = 64
+          Left = 11
+          Top = 65
           Caption = '* Klik Kanan Di Nama Jika Ada  Pegawai Belum Terdaftar'
           Style.HotTrack = False
         end
         object cxcrncydtUpah: TcxCurrencyEdit
-          Left = 272
-          Top = 87
+          Left = 273
+          Top = 88
+          Style.BorderColor = clWindowFrame
+          Style.BorderStyle = ebsSingle
           Style.HotTrack = False
           TabOrder = 5
           Width = 121
         end
         object cbbStatus: TcxComboBox
-          Left = 74
-          Top = 87
+          Left = 75
+          Top = 88
           Properties.Items.Strings = (
             'lunas'
             'belum lunas')
+          Style.BorderColor = clWindowFrame
+          Style.BorderStyle = ebsSingle
           Style.HotTrack = False
+          Style.ButtonStyle = btsHotFlat
+          Style.PopupBorderStyle = epbsSingle
           TabOrder = 4
           Text = 'cbbStatus'
           Width = 121
         end
         object cxmKeterangan: TcxMemo
-          Left = 459
-          Top = 10
+          Left = 460
+          Top = 11
           Lines.Strings = (
             'cxmKeterangan')
+          Style.BorderColor = clWindowFrame
+          Style.BorderStyle = ebsSingle
           Style.HotTrack = False
           TabOrder = 6
           Height = 89
@@ -366,6 +385,10 @@ object FormPelaksanaPekerja: TFormPelaksanaPekerja
     object ambah1: TMenuItem
       Caption = 'Tambah Pegawai'
       OnClick = ambah1Click
+    end
+  end
+  object dxlytlkndflst1: TdxLayoutLookAndFeelList
+    object dxlytwblkndfl1: TdxLayoutWebLookAndFeel
     end
   end
 end

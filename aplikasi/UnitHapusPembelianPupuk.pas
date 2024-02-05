@@ -22,6 +22,7 @@ type
     cxlbl2: TcxLabel;
     cxmKeterangan: TcxMemo;
     procedure btnHapusClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -33,7 +34,7 @@ var
 
 implementation
 
-uses UnitDm;
+uses UnitDm,UnitDataPembelianPupukObat;
 
 {$R *.dfm}
 
@@ -57,7 +58,13 @@ if cxmKeterangan.Text = '' then
   Open;
   end;
   MessageDlg('Transaksi Pembelian Pupuk Berhasil Di Hapus...!',mtInformation,[mbOK],0);
+  FormDaftarDataPembelianPupukObat.btnTampilClick(sender);
   end; 
+end;
+
+procedure TFormHapusPembelianPupuk.FormShow(Sender: TObject);
+begin
+ cxmKeterangan.Text := '';
 end;
 
 end.

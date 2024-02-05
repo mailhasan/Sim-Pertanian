@@ -64,6 +64,22 @@ object FormUtama: TFormUtama
         ParentFont = False
       end
     end
+    object pnlDonasi: TPanel
+      Left = 852
+      Top = 1
+      Width = 110
+      Height = 39
+      Align = alRight
+      Caption = 'Donasi'
+      Color = clLime
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -19
+      Font.Name = 'Arial Narrow'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 1
+    end
   end
   object pnlTengah: TPanel
     Left = 190

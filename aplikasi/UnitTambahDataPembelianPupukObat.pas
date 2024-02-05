@@ -397,7 +397,9 @@ begin
   SQL.Text := 'select * from pembelianpupukobat where noPembelian="'+cxtxtdtNoPembelian.Text+'"';
   Open;
   end;
+  ///
   MessageDlg('Transaksi Pembelian Pupuk Berhasil Di Simpan...!',mtInformation,[mbOK],0);
+
 end;
 
 procedure TFormTambahDataPembelianPupukObat.btnBaruPembelianClick(

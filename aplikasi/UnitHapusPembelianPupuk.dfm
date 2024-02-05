@@ -3,6 +3,7 @@ object FormHapusPembelianPupuk: TFormHapusPembelianPupuk
   Top = 187
   Width = 331
   Height = 288
+  BorderIcons = [biSystemMenu]
   Caption = 'Hapus Pembelian Pupuk'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -12,6 +13,7 @@ object FormHapusPembelianPupuk: TFormHapusPembelianPupuk
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object pnlAtas: TPanel
@@ -86,13 +88,13 @@ object FormHapusPembelianPupuk: TFormHapusPembelianPupuk
       Caption = 'Keterangan Batal'
     end
     object cxmKeterangan: TcxMemo
-      Left = 110
-      Top = 65
+      Left = 105
+      Top = 63
       Lines.Strings = (
         'cxmKeterangan')
       TabOrder = 5
       Height = 89
-      Width = 185
+      Width = 196
     end
   end
 end

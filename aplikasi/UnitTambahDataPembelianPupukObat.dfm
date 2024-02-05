@@ -1,8 +1,8 @@
 object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
-  Left = 353
-  Top = 146
-  Width = 889
-  Height = 609
+  Left = 334
+  Top = 98
+  Width = 750
+  Height = 555
   Caption = 'Tambah Data Pembelian pupuk'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -11,14 +11,14 @@ object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
-  Position = poDesktopCenter
+  Position = poScreenCenter
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object pnlAtas: TPanel
     Left = 0
     Top = 0
-    Width = 873
+    Width = 734
     Height = 41
     Align = alTop
     Caption = 'Form Data Pembelian Pupuk/Obat'
@@ -33,8 +33,8 @@ object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
   end
   object pnlBawah: TPanel
     Left = 0
-    Top = 493
-    Width = 873
+    Top = 439
+    Width = 734
     Height = 78
     Align = alBottom
     Color = 15000804
@@ -122,14 +122,14 @@ object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
   object pnlTengah: TPanel
     Left = 0
     Top = 41
-    Width = 873
-    Height = 452
+    Width = 734
+    Height = 398
     Align = alClient
     TabOrder = 2
     object dxlytcntrl1: TdxLayoutControl
       Left = 1
       Top = 1
-      Width = 871
+      Width = 732
       Height = 186
       Align = alTop
       TabOrder = 0
@@ -338,8 +338,8 @@ object FormTambahDataPembelianPupukObat: TFormTambahDataPembelianPupukObat
     object cxgrd1: TcxGrid
       Left = 1
       Top = 187
-      Width = 871
-      Height = 264
+      Width = 732
+      Height = 210
       Align = alClient
       TabOrder = 1
       RootLevelStyles.Tab = cxstyl1

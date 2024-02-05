@@ -47,6 +47,7 @@ type
     procedure btnTampilClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure dxnvbrtmHapusClick(Sender: TObject);
+    procedure dxnvbrtmPembayaranClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -59,7 +60,7 @@ var
 implementation
 
 {$R *.dfm}
-uses UnitDm,UnitTambahDataPembelianPupukObat,UnitHapusPembelianPupuk, ZDataset;
+uses UnitDm,UnitTambahDataPembelianPupukObat,UnitHapusPembelianPupuk, ZDataset, UnitTambahPembayaranPembelianPupuk;
 
 procedure TFormDaftarDataPembelianPupukObat.dxnvbrtmTambahClick(
   Sender: TObject);
@@ -121,6 +122,7 @@ procedure TFormDaftarDataPembelianPupukObat.dxnvbrtmHapusClick(
 begin
 if DataModule1.zqrypembelianPupukObat.RecordCount >= 1 then
   begin
+   Application.CreateForm(TFormHapusPembelianPupuk, FormHapusPembelianPupuk);
    with FormHapusPembelianPupuk do
    begin
      cxtxtdtNoPembelian.Text :=  DataModule1.zqrypembelianPupukObat.Fieldbyname('noPembelian').AsString;
@@ -132,4 +134,20 @@ if DataModule1.zqrypembelianPupukObat.RecordCount >= 1 then
   MessageDlg('Data Tidak Di Temukan...!',mtWarning,[mbOK],0);
 end;
 
+procedure TFormDaftarDataPembelianPupukObat.dxnvbrtmPembayaranClick(
+  Sender: TObject);
+begin
+if DataModule1.zqrypembelianPupukObat.RecordCount >= 1 then
+ begin
+ Application.CreateForm(TFormPembayaranPembelianPupuk, FormPembayaranPembelianPupuk);
+ with FormPembayaranPembelianPupuk do
+ begin
+  cxcrncydtSisaPembayaran.Value := DataModule1.zqrypembelianPupukObat.FIeldbyname('sisaPembayaran').AsCurrency;
+  cxtxtdtStatus.Text := DataModule1.zqrypembelianPupukObat.FIeldbyname('status').AsString;
+  cxtxtdtNoPembelian.Text := DataModule1.zqrypembelianPupukObat.FIeldbyname('noPembelian').AsString;
+  baru;
+  ShowModal;
+ end
+end;
+end;
 end.

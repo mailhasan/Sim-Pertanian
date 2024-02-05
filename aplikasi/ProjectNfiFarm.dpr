@@ -21,7 +21,10 @@ uses
   UnitTambahDataPupukObat in 'UnitTambahDataPupukObat.pas' {FormTambahDataPupukObat},
   UnitSatuan in 'UnitSatuan.pas' {FormSatuan},
   UnitDataPembelianPupukObat in 'UnitDataPembelianPupukObat.pas' {FormDaftarDataPembelianPupukObat},
-  UnitTambahDataPembelianPupukObat in 'UnitTambahDataPembelianPupukObat.pas' {FormTambahDataPembelianPupukObat};
+  UnitTambahDataPembelianPupukObat in 'UnitTambahDataPembelianPupukObat.pas' {FormTambahDataPembelianPupukObat},
+  UnitHapusPembelianPupuk in 'UnitHapusPembelianPupuk.pas' {FormHapusPembelianPupuk},
+  UnitTambahPembayaranPembelianPupuk in 'UnitTambahPembayaranPembelianPupuk.pas' {FormPembayaranPembelianPupuk},
+  UnitPenggunaanPupukObat in 'UnitPenggunaanPupukObat.pas' {FormPenggunaanPupukObat};
 
 {$R *.res}
 
@@ -35,5 +38,8 @@ begin
   Application.CreateForm(TFormSatuan, FormSatuan);
   Application.CreateForm(TFormDaftarDataPembelianPupukObat, FormDaftarDataPembelianPupukObat);
   Application.CreateForm(TFormTambahDataPembelianPupukObat, FormTambahDataPembelianPupukObat);
+  Application.CreateForm(TFormHapusPembelianPupuk, FormHapusPembelianPupuk);
+  Application.CreateForm(TFormPembayaranPembelianPupuk, FormPembayaranPembelianPupuk);
+  Application.CreateForm(TFormPenggunaanPupukObat, FormPenggunaanPupukObat);
   Application.Run;
 end.
