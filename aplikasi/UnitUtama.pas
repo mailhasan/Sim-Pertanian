@@ -45,6 +45,8 @@ type
     dxnvbrtmPEMBELIANPUPUKOBAT: TdxNavBarItem;
     dxskncntrlr1: TdxSkinController;
     pnlDonasi: TPanel;
+    dxnvbrtmDataTernak: TdxNavBarItem;
+    dxnvbrtmBobotSapi: TdxNavBarItem;
     procedure dxnvbrtmDataLahanClick(Sender: TObject);
     procedure dxnvbrtmDataLokasiLahanClick(Sender: TObject);
     procedure dxnvbrtmKegiatanKelolaLahanClick(Sender: TObject);

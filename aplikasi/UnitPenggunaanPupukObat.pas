@@ -72,6 +72,7 @@ type
     { Private declarations }
   public
     { Public declarations }
+    procedure baru;
   end;
 
 var
@@ -81,5 +82,14 @@ implementation
 
 {$R *.dfm}
 uses UnitDm;
+
+procedure TFormPenggunaanPupukObat.baru;
+begin
+ dxlytmId.Caption := '';
+ cxdtdtTglPengeluaranPupuk.Date := Now;
+ cxlkpcmbxNamaPupuk.Text := '';
+ cxtxtdtKodePupuk.Text := '';
+ 
+end;
 
 end.

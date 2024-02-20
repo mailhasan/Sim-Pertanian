@@ -23,7 +23,7 @@ object FormDAFTARDATAPEGAWAI: TFormDAFTARDATAPEGAWAI
     Height = 41
     Align = alTop
     Caption = 'DAFTAR DATA PEGAWAI'
-    Color = 15000804
+    Color = 15853792
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -19
@@ -38,7 +38,7 @@ object FormDAFTARDATAPEGAWAI: TFormDAFTARDATAPEGAWAI
     Width = 694
     Height = 41
     Align = alBottom
-    Color = 15000804
+    Color = 15853792
     TabOrder = 1
     object cxlbl1: TcxLabel
       Left = 10

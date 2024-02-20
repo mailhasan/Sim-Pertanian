@@ -65,7 +65,8 @@ begin
   zqrySatuan.Active := True;
   zqrypembelianPupukObat.Active := True;
   zqrydetailPembelianPupukObat.Active := True;
-  
+  zqryTampilPupukObat.Active := True;
+  zqrypenggunaanpupukobat.Active := True;
 end;
 
 end.

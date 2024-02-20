@@ -157,6 +157,7 @@ object FormPenggunaanPupukObat: TFormPenggunaanPupukObat
       object cxcrncydtStok: TcxCurrencyEdit
         Left = 107
         Top = 122
+        Properties.AssignedValues.DisplayFormat = True
         Style.BorderColor = clWindowFrame
         Style.BorderStyle = ebsSingle
         Style.HotTrack = False
@@ -166,6 +167,7 @@ object FormPenggunaanPupukObat: TFormPenggunaanPupukObat
       object cxcrncydtJmlPemakaian: TcxCurrencyEdit
         Left = 351
         Top = 122
+        Properties.AssignedValues.DisplayFormat = True
         Style.BorderColor = clWindowFrame
         Style.BorderStyle = ebsSingle
         Style.HotTrack = False

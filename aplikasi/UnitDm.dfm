@@ -178,6 +178,7 @@ object DataModule1: TDataModule1
   end
   object zqryTampilPupukObat: TZQuery
     Connection = conFarm
+    Active = True
     SQL.Strings = (
       'SELECT id,noPembelian,kodePupukObat,namaPupukObat,satuan,'
       

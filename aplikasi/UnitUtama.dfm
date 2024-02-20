@@ -22,11 +22,11 @@ object FormUtama: TFormUtama
     Height = 41
     Align = alTop
     Caption = 'Aplikasi Pencatatan Pertanian Dan Peternakan Sapi'
-    Color = 15000804
+    Color = 15853792
     Font.Charset = ANSI_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -19
-    Font.Name = 'Palatino Linotype'
+    Font.Color = 8739645
+    Font.Height = -16
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
@@ -36,6 +36,7 @@ object FormUtama: TFormUtama
       Width = 190
       Height = 39
       Align = alLeft
+      Color = 15853792
       TabOrder = 0
       object lbl1: TLabel
         Left = 56
@@ -65,11 +66,13 @@ object FormUtama: TFormUtama
       end
     end
     object pnlDonasi: TPanel
-      Left = 852
+      Left = 876
       Top = 1
-      Width = 110
+      Width = 86
       Height = 39
       Align = alRight
+      BevelInner = bvSpace
+      BorderStyle = bsSingle
       Caption = 'Donasi'
       Color = clLime
       Font.Charset = ANSI_CHARSET
@@ -79,6 +82,7 @@ object FormUtama: TFormUtama
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 1
+      Visible = False
     end
   end
   object pnlTengah: TPanel
@@ -173,7 +177,13 @@ object FormUtama: TFormUtama
         Caption = 'PETERNAKAN'
         SelectedLinkIndex = -1
         TopVisibleLinkIndex = 0
-        Links = <>
+        Links = <
+          item
+            Item = dxnvbrtmDataTernak
+          end
+          item
+            Item = dxnvbrtmBobotSapi
+          end>
       end
       object dxnvbrgrpLAPORAN: TdxNavBarGroup
         Caption = 'LAPORAN'
@@ -210,6 +220,12 @@ object FormUtama: TFormUtama
       object dxnvbrtmPEMBELIANPUPUKOBAT: TdxNavBarItem
         Caption = 'PEMBELIAN PUPUK/OBAT'
         OnClick = dxnvbrtmPEMBELIANPUPUKOBATClick
+      end
+      object dxnvbrtmDataTernak: TdxNavBarItem
+        Caption = 'DATA TERNAK'
+      end
+      object dxnvbrtmBobotSapi: TdxNavBarItem
+        Caption = 'BOBOT SAPI'
       end
     end
   end
