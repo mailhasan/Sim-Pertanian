@@ -157,13 +157,16 @@
 <left>765</left>
 <top>805</top>
 <width>316</width>
-<height>277</height>
+<height>334</height>
 <sql_create_table>CREATE TABLE `penggunaanpupukobat` (
+  `idPenggunaanPupukObat` int(11) NOT NULL AUTO_INCREMENT,
   `id` int(11) DEFAULT NULL,
   `noKegiatanKelolahLahan` varchar(70) DEFAULT NULL,
   `tanggalPupuk` date DEFAULT NULL,
+  `kodePupuk` varchar(10) DEFAULT NULL,
   `namaPupuk` varchar(200) DEFAULT NULL,
   `hargaPupuk` float DEFAULT NULL,
+  `jumlahPenggunaan` float DEFAULT NULL,
   `jumlahPupuk` int(11) DEFAULT NULL,
   `subTotalPupuk` float DEFAULT NULL,
   `keterangan` text,
@@ -172,9 +175,12 @@
   `createUser` varchar(50) DEFAULT NULL,
   `modifDate` datetime DEFAULT NULL,
   `modifUser` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`idPenggunaanPupukObat`),
   KEY `noKegiatanKelolahLahan` (`noKegiatanKelolahLahan`),
-  CONSTRAINT `penggunaanpupukobat_ibfk_1` FOREIGN KEY (`noKegiatanKelolahLahan`) REFERENCES `kegiatankelolahlahan` (`noKegiatanKelolahLahan`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+  KEY `id` (`id`),
+  CONSTRAINT `penggunaanpupukobat_ibfk_1` FOREIGN KEY (`noKegiatanKelolahLahan`) REFERENCES `kegiatankelolahlahan` (`noKegiatanKelolahLahan`),
+  CONSTRAINT `penggunaanpupukobat_ibfk_2` FOREIGN KEY (`id`) REFERENCES `detailpembelianpupukobat` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="pegawai" view="colnames">
 <left>1184</left>
@@ -194,8 +200,8 @@
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="pupukobat" view="colnames">
-<left>461</left>
-<top>698</top>
+<left>502</left>
+<top>851</top>
 <width>140</width>
 <height>226</height>
 <sql_create_table>CREATE TABLE `pupukobat` (
@@ -220,7 +226,8 @@
   `tanggalPembelian` datetime DEFAULT NULL,
   `totalPembelian` float DEFAULT NULL,
   `sisaPembayaran` float DEFAULT NULL,
-  `status` enum('lunas','belum lunas') DEFAULT NULL,
+  `status` enum('lunas','belum lunas','batal') DEFAULT NULL,
+  `keterangan` text,
   `createDate` datetime DEFAULT NULL,
   `createUser` varchar(50) DEFAULT NULL,
   `modifDate` datetime DEFAULT NULL,
@@ -228,11 +235,11 @@
   PRIMARY KEY (`noPembelian`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
 </table>
-<table name="detailPembelianPupukObat" view="colnames">
+<table name="detailPembelianPupukObat" view="standard">
 <left>234</left>
 <top>705</top>
-<width>168</width>
-<height>277</height>
+<width>252</width>
+<height>284</height>
 <sql_create_table>CREATE TABLE `detailpembelianpupukobat` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `noPembelian` varchar(50) DEFAULT NULL,
@@ -240,6 +247,7 @@
   `namaPupukObat` varchar(150) DEFAULT NULL,
   `satuan` varchar(50) DEFAULT NULL,
   `jumlahPembelian` float DEFAULT NULL,
+  `jumlahPenggunaan` float DEFAULT NULL,
   `hargaBeli` float DEFAULT NULL,
   `subTotalPembelian` float DEFAULT NULL,
   `createDate` datetime DEFAULT NULL,
@@ -251,7 +259,7 @@
   KEY `noPembelian` (`noPembelian`),
   CONSTRAINT `detailpembelianpupukobat_ibfk_1` FOREIGN KEY (`kodePupukObat`) REFERENCES `pupukobat` (`kodePupukObat`),
   CONSTRAINT `detailpembelianpupukobat_ibfk_2` FOREIGN KEY (`noPembelian`) REFERENCES `pembelianpupukobat` (`noPembelian`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="satuan" view="colnames">
 <left>623</left>
@@ -263,23 +271,6 @@
   `satuan` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1</sql_create_table>
-</table>
-<table name="detailpembelianpupukobattemp" view="colnames">
-<left>30</left>
-<top>939</top>
-<width>153</width>
-<height>226</height>
-<sql_create_table>CREATE TABLE `detailpembelianpupukobattemp` (
-  `noPembelian` varchar(50) DEFAULT NULL,
-  `kodePupukObat` varchar(10) DEFAULT NULL,
-  `namaPupukObat` varchar(150) DEFAULT NULL,
-  `satuan` varchar(50) DEFAULT NULL,
-  `jumlahPembelian` float DEFAULT NULL,
-  `hargaBeli` float DEFAULT NULL,
-  `subTotalPembelian` float DEFAULT NULL,
-  `createDate` datetime DEFAULT NULL,
-  `createUser` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 </tables>
 </canvas>

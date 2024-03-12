@@ -1,7 +1,7 @@
 object FormPenggunaanAlat: TFormPenggunaanAlat
   Left = 222
   Top = 131
-  Width = 928
+  Width = 785
   Height = 541
   Caption = 'Penggunaan Alat'
   Color = clBtnFace
@@ -17,8 +17,8 @@ object FormPenggunaanAlat: TFormPenggunaanAlat
   object pnlTengah: TPanel
     Left = 0
     Top = 41
-    Width = 912
-    Height = 421
+    Width = 777
+    Height = 432
     Align = alClient
     Color = clHighlightText
     TabOrder = 0
@@ -28,13 +28,13 @@ object FormPenggunaanAlat: TFormPenggunaanAlat
       Align = alClient
       Caption = 'DAFTAR DATA HASIL PANEN'
       TabOrder = 0
-      Height = 255
-      Width = 910
+      Height = 266
+      Width = 775
       object cxgrd1: TcxGrid
         Left = 2
         Top = 18
-        Width = 906
-        Height = 235
+        Width = 771
+        Height = 246
         Align = alClient
         TabOrder = 0
         object cxgrdbtblvwGrid1DBTableView1: TcxGridDBTableView
@@ -101,11 +101,11 @@ object FormPenggunaanAlat: TFormPenggunaanAlat
       Caption = 'FORM DATA PENGGUNAAN ALAT'
       TabOrder = 1
       Height = 164
-      Width = 910
+      Width = 775
       object pnl1: TPanel
         Left = 2
         Top = 121
-        Width = 906
+        Width = 771
         Height = 41
         Align = alBottom
         Color = 15000804
@@ -165,75 +165,58 @@ object FormPenggunaanAlat: TFormPenggunaanAlat
       object dxlytcntrl1: TdxLayoutControl
         Left = 2
         Top = 18
-        Width = 906
+        Width = 771
         Height = 103
         Align = alClient
         TabOrder = 1
         TabStop = False
-        LayoutLookAndFeel = FormUtama.dxlytwblkndfl1
         object cxtxtdtNoKegiatan: TcxTextEdit
-          Left = 75
-          Top = 3
-          Style.BorderColor = clWindowFrame
-          Style.BorderStyle = ebsSingle
+          Left = 74
+          Top = 10
           Style.HotTrack = False
           TabOrder = 0
           Text = 'cxtxtdtNoKegiatan'
           Width = 121
         end
         object cxdtdtTglPenggunaan: TcxDateEdit
-          Left = 293
-          Top = 3
-          Style.BorderColor = clWindowFrame
-          Style.BorderStyle = ebsSingle
+          Left = 292
+          Top = 10
           Style.HotTrack = False
-          Style.ButtonStyle = btsHotFlat
-          Style.PopupBorderStyle = epbsSingle
           TabOrder = 1
           Width = 121
         end
         object cxtxtdtNamaAlat: TcxTextEdit
-          Left = 75
-          Top = 30
-          Style.BorderColor = clWindowFrame
-          Style.BorderStyle = ebsSingle
+          Left = 74
+          Top = 37
           Style.HotTrack = False
           TabOrder = 2
           Text = 'cxtxtdtNamaAlat'
           Width = 121
         end
         object cxcrncydtBiaya: TcxCurrencyEdit
-          Left = 75
-          Top = 57
-          Style.BorderColor = clWindowFrame
-          Style.BorderStyle = ebsSingle
+          Left = 74
+          Top = 64
           Style.HotTrack = False
           TabOrder = 3
           Width = 121
         end
         object cxmKeterangan: TcxMemo
-          Left = 480
-          Top = 3
+          Left = 479
+          Top = 10
           Lines.Strings = (
             'cxmKeterangan')
-          Style.BorderColor = clWindowFrame
-          Style.BorderStyle = ebsSingle
           Style.HotTrack = False
           TabOrder = 5
           Height = 89
           Width = 255
         end
         object cbbStatus: TcxComboBox
-          Left = 293
-          Top = 57
+          Left = 292
+          Top = 64
           Properties.Items.Strings = (
             'lunas'
             'belum lunas')
-          Style.BorderColor = clWindowFrame
-          Style.BorderStyle = ebsSingle
           Style.HotTrack = False
-          Style.ButtonStyle = btsHotFlat
-          Style.PopupBorderStyle = epbsSingle
           TabOrder = 4
           Text = 'cbbStatus'
           Width = 121
@@ -299,8 +282,8 @@ object FormPenggunaanAlat: TFormPenggunaanAlat
   end
   object pnlBawah: TPanel
     Left = 0
-    Top = 462
-    Width = 912
+    Top = 473
+    Width = 777
     Height = 41
     Align = alBottom
     Color = 15000804
@@ -340,7 +323,7 @@ object FormPenggunaanAlat: TFormPenggunaanAlat
   object pnlAtas: TPanel
     Left = 0
     Top = 0
-    Width = 912
+    Width = 777
     Height = 41
     Align = alTop
     Caption = 'Penggunaan Alat'

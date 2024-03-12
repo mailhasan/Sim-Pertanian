@@ -12,7 +12,7 @@ uses
   cxDBLookupComboBox, cxStyles, cxCustomData, cxFilter, cxData,
   cxDataStorage, DB, cxDBData, cxGridLevel, cxClasses, cxGridCustomView,
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid, Menus,
-  StdCtrls, cxButtons, cxLabel;
+  StdCtrls, cxButtons, cxLabel, dxSkinOffice2007Black;
 
 type
   TFormTambahDataPembelianPupukObat = class(TForm)

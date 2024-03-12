@@ -257,7 +257,18 @@ end;
 procedure TFormDaftarDataKegiatanKelolaLahan.dxnvbrtmObatobatanClick(
   Sender: TObject);
 begin
-  FormPenggunaanPupukObat.ShowModal;
+  /// penggunaan pupuk & obat-obatan
+if DataModule1.zqrykegiatanKelolahLahan.RecordCount >= 1 then
+  begin
+   with FormPenggunaanPupukObat do
+   begin
+     cxtxtdtNoKegiatan.Text := DataModule1.zqrykegiatanKelolahLahan.Fieldbyname('noKegiatanKelolahLahan').AsString;
+     ShowModal;
+   end;
+  end
+  else
+  MessageDlg('Data Tidak Di Temukan...!',mtWarning,[mbOK],0);
+  ///FormPenggunaanPupukObat.ShowModal;
 end;
 
 end.

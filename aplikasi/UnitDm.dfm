@@ -2,7 +2,7 @@ object DataModule1: TDataModule1
   OldCreateOrder = False
   Left = 409
   Top = 153
-  Height = 487
+  Height = 605
   Width = 776
   object conFarm: TZConnection
     ControlsCodePage = cGET_ACP
@@ -180,13 +180,25 @@ object DataModule1: TDataModule1
     Connection = conFarm
     Active = True
     SQL.Strings = (
-      'SELECT id,noPembelian,kodePupukObat,namaPupukObat,satuan,'
+      'SELECT'
+      '    `detailpembelianpupukobat`.`id`'
+      '    , `pembelianpupukobat`.`tanggalPembelian`'
+      '    , `detailpembelianpupukobat`.`noPembelian`'
+      '    , `detailpembelianpupukobat`.`kodePupukObat`'
+      '    , `detailpembelianpupukobat`.`namaPupukObat`'
+      '    , `detailpembelianpupukobat`.`satuan`'
+      '    , `detailpembelianpupukobat`.`jumlahPembelian`'
+      '    , `detailpembelianpupukobat`.`jumlahPenggunaan`'
+      '    , `detailpembelianpupukobat`.`hargaBeli`'
+      '    , `detailpembelianpupukobat`.`subTotalPembelian`'
+      'FROM'
+      '    `detailpembelianpupukobat`'
+      '    INNER JOIN `pembelianpupukobat` '
       
-        'jumlahPembelian,jumlahPenggunaan,hargaBeli FROM detailpembelianp' +
-        'upukobat '
-      
-        'WHERE (jumlahPenggunaan<jumlahPembelian) OR jumlahPenggunaan is ' +
-        'NULL')
+        '        ON (`detailpembelianpupukobat`.`noPembelian` = `pembelia' +
+        'npupukobat`.`noPembelian`) WHERE (jumlahPenggunaan<jumlahPembeli' +
+        'an) OR jumlahPenggunaan IS NULL'
+      'ORDER BY tanggalPembelian DESC;')
     Params = <>
     Left = 480
     Top = 184

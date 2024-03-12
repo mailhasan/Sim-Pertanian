@@ -1,7 +1,7 @@
 object FormHasilPanen: TFormHasilPanen
-  Left = 207
-  Top = 123
-  Width = 928
+  Left = 418
+  Top = 148
+  Width = 513
   Height = 509
   Caption = 'Hasil Panen'
   Color = clBtnFace
@@ -17,7 +17,7 @@ object FormHasilPanen: TFormHasilPanen
   object pnlTengah: TPanel
     Left = 0
     Top = 41
-    Width = 912
+    Width = 497
     Height = 389
     Align = alClient
     Color = clHighlightText
@@ -29,11 +29,11 @@ object FormHasilPanen: TFormHasilPanen
       Caption = 'DAFTAR DATA HASIL PANEN'
       TabOrder = 0
       Height = 212
-      Width = 910
+      Width = 495
       object cxgrd1: TcxGrid
         Left = 2
         Top = 18
-        Width = 906
+        Width = 491
         Height = 192
         Align = alClient
         TabOrder = 0
@@ -104,11 +104,11 @@ object FormHasilPanen: TFormHasilPanen
       Caption = 'FORM DATA HASIL PANEN'
       TabOrder = 1
       Height = 175
-      Width = 910
+      Width = 495
       object pnl1: TPanel
         Left = 2
         Top = 132
-        Width = 906
+        Width = 491
         Height = 41
         Align = alBottom
         Color = 15000804
@@ -168,7 +168,7 @@ object FormHasilPanen: TFormHasilPanen
       object dxlytcntrl1: TdxLayoutControl
         Left = 2
         Top = 18
-        Width = 906
+        Width = 491
         Height = 114
         Align = alClient
         TabOrder = 1
@@ -283,7 +283,7 @@ object FormHasilPanen: TFormHasilPanen
   object pnlBawah: TPanel
     Left = 0
     Top = 430
-    Width = 912
+    Width = 497
     Height = 41
     Align = alBottom
     Color = 15000804
@@ -323,7 +323,7 @@ object FormHasilPanen: TFormHasilPanen
   object pnlAtas: TPanel
     Left = 0
     Top = 0
-    Width = 912
+    Width = 497
     Height = 41
     Align = alTop
     Caption = 'Hasil Panen'

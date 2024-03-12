@@ -1,7 +1,7 @@
 object FormPelaksanaPekerja: TFormPelaksanaPekerja
   Left = 204
   Top = 113
-  Width = 979
+  Width = 775
   Height = 606
   Caption = 'Pelaksana Pekerjaan'
   Color = clBtnFace
@@ -17,8 +17,8 @@ object FormPelaksanaPekerja: TFormPelaksanaPekerja
   object pnlTengah: TPanel
     Left = 0
     Top = 41
-    Width = 963
-    Height = 486
+    Width = 767
+    Height = 497
     Align = alClient
     Color = clHighlightText
     TabOrder = 0
@@ -28,13 +28,13 @@ object FormPelaksanaPekerja: TFormPelaksanaPekerja
       Align = alClient
       Caption = 'DAFTAR DATA HASIL PANEN'
       TabOrder = 0
-      Height = 280
-      Width = 961
+      Height = 291
+      Width = 765
       object cxgrd1: TcxGrid
         Left = 2
         Top = 18
-        Width = 957
-        Height = 260
+        Width = 761
+        Height = 271
         Align = alClient
         TabOrder = 0
         object cxgrdbtblvwGrid1DBTableView1: TcxGridDBTableView
@@ -103,11 +103,11 @@ object FormPelaksanaPekerja: TFormPelaksanaPekerja
       Caption = 'FORM DATA HASIL PANEN'
       TabOrder = 1
       Height = 204
-      Width = 961
+      Width = 765
       object pnl1: TPanel
         Left = 2
         Top = 161
-        Width = 957
+        Width = 761
         Height = 41
         Align = alBottom
         Color = 15000804
@@ -167,7 +167,7 @@ object FormPelaksanaPekerja: TFormPelaksanaPekerja
       object dxlytcntrl1: TdxLayoutControl
         Left = 2
         Top = 18
-        Width = 957
+        Width = 761
         Height = 143
         Align = alClient
         TabOrder = 1
@@ -325,8 +325,8 @@ object FormPelaksanaPekerja: TFormPelaksanaPekerja
   end
   object pnlBawah: TPanel
     Left = 0
-    Top = 527
-    Width = 963
+    Top = 538
+    Width = 767
     Height = 41
     Align = alBottom
     Color = 15000804
@@ -366,7 +366,7 @@ object FormPelaksanaPekerja: TFormPelaksanaPekerja
   object pnlAtas: TPanel
     Left = 0
     Top = 0
-    Width = 963
+    Width = 767
     Height = 41
     Align = alTop
     Caption = 'Pelaksana Pekerjaan'

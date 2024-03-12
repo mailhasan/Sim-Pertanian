@@ -18,15 +18,15 @@ object FormUtama: TFormUtama
   object pnlAtas: TPanel
     Left = 0
     Top = 0
-    Width = 963
+    Width = 971
     Height = 41
     Align = alTop
     Caption = 'Aplikasi Pencatatan Pertanian Dan Peternakan Sapi'
-    Color = 15853792
+    Color = 15000804
     Font.Charset = ANSI_CHARSET
-    Font.Color = 8739645
+    Font.Color = clBlack
     Font.Height = -16
-    Font.Name = 'Arial'
+    Font.Name = 'Arial Black'
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
@@ -36,37 +36,37 @@ object FormUtama: TFormUtama
       Width = 190
       Height = 39
       Align = alLeft
-      Color = 15853792
+      Color = 15000804
       TabOrder = 0
       object lbl1: TLabel
-        Left = 56
+        Left = 64
         Top = 3
-        Width = 65
-        Height = 18
+        Width = 53
+        Height = 16
         Caption = 'NFI FARM'
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
-        Font.Name = 'Book Antiqua'
+        Font.Name = 'Arial Narrow'
         Font.Style = [fsBold]
         ParentFont = False
       end
       object lbl2: TLabel
-        Left = 47
+        Left = 39
         Top = 22
-        Width = 87
-        Height = 15
+        Width = 110
+        Height = 14
         Caption = 'www.nfikreatif.com'
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
-        Font.Name = 'Arial Narrow'
+        Font.Name = 'Arial'
         Font.Style = [fsBold]
         ParentFont = False
       end
     end
     object pnlDonasi: TPanel
-      Left = 876
+      Left = 884
       Top = 1
       Width = 86
       Height = 39
@@ -88,16 +88,16 @@ object FormUtama: TFormUtama
   object pnlTengah: TPanel
     Left = 190
     Top = 41
-    Width = 773
-    Height = 465
+    Width = 781
+    Height = 476
     Align = alClient
     Color = clHighlightText
     TabOrder = 1
   end
   object stat1: TStatusBar
     Left = 0
-    Top = 506
-    Width = 963
+    Top = 517
+    Width = 971
     Height = 19
     Panels = <
       item
@@ -118,14 +118,14 @@ object FormUtama: TFormUtama
     Left = 0
     Top = 41
     Width = 190
-    Height = 465
+    Height = 476
     Align = alLeft
     TabOrder = 3
     object dxnvbr1: TdxNavBar
       Left = 1
       Top = 1
       Width = 188
-      Height = 463
+      Height = 474
       Align = alClient
       ActiveGroupIndex = 2
       TabOrder = 0
@@ -237,7 +237,7 @@ object FormUtama: TFormUtama
   end
   object dxskncntrlr1: TdxSkinController
     Kind = lfFlat
-    SkinName = 'DarkSide'
+    SkinName = 'Office2007Black'
     Left = 328
     Top = 67
   end
